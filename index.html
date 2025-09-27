@@ -1,11 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AJ Mingua Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guidance Counselor — AJ Mingua</title>
+  <meta name="description" content="Modern psych-themed portfolio for a guidance counselor showcasing counseling work, arts, and instruments." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #f6fbfb;
+      --card: #ffffff;
+      --accent: #6aa6a3; /* soft teal */
+      --accent-2: #93c5cf; /* lighter */
+      --muted: #6b7280;
+      --glass: rgba(255,255,255,0.6);
+      --radius: 14px;
+      --shadow: 0 8px 24px rgba(14,30,37,0.08);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color-scheme: light;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(147,197,207,0.08), transparent 8%),
+                  radial-gradient(800px 500px at 90% 90%, rgba(106,166,163,0.06), transparent 10%),
+                  var(--bg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    /* Layout */
+    .container{max-width:1100px;margin:32px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:white;font-weight:700;font-size:20px;box-shadow:var(--shadow)}
+    nav{display:flex;gap:12px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600}
+    nav a:hover{background:rgba(0,0,0,0.04);color:var(--accent)}
+
+    /* Hero */
+    .heroImg img{width:100%;border-radius:16px;object-fit:cover;box-shadow:var(--shadow);margin-bottom:12px}
+    main h1{font-size:24px;margin-top:18px}
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:center;margin-top:28px}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    .intro h1{margin:0;font-size:32px;line-height:1.05}
+    .intro p{color:var(--muted);margin:12px 0 18px}
+    .cta{display:flex;gap:12px}
+    .btn{background:var(--accent);color:white;padding:10px 14px;border-radius:10px;border:0;font-weight:700;cursor:pointer}
+    .btn.secondary{background:transparent;color:var(--accent);border:2px solid rgba(106,166,163,0.12)}
+
+    /* Right column profile */
+    .profile{display:flex;flex-direction:column;align-items:center;padding:18px}
+    .avatar{width:120px;height:120px;border-radius:16px;background:linear-gradient(180deg,#fff,#f1f6f6);display:grid;place-items:center;font-weight:700;font-size:28px}
+    .meta{margin-top:12px;text-align:center}
+    .meta small{display:block;color:var(--muted)}
+
+    /* Sections */
+    section{margin-top:18px}
+    .section-title{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    .section-title h2{margin:0;font-size:20px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+
+    /* Counseling card */
+    .counseling .tag{display:inline-block;background:linear-gradient(90deg,rgba(106,166,163,0.12),transparent);padding:6px 10px;border-radius:999px;font-weight:600;color:var(--accent)}
+    .counseling p{color:var(--muted);margin-top:8px}
+
+    /* Arts gallery */
+    .art-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .art-item{height:110px;border-radius:12px;overflow:hidden;display:grid;place-items:center;background:linear-gradient(180deg,rgba(147,197,207,0.14),rgba(106,166,163,0.06));cursor:pointer}
+    .art-item img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* Instruments */
+    .instr-list{display:flex;flex-direction:column;gap:10px}
+    .instr{display:flex;align-items:center;gap:12px;padding:10px;border-radius:12px;background:linear-gradient(180deg,#fff,#fbffff);border:1px solid rgba(10,20,25,0.02)}
+
+    /* About / education */
+    .edu{display:flex;flex-direction:column;gap:8px}
+    .edu .row{display:flex;gap:12px;align-items:center}
+    .chip{padding:6px 10px;border-radius:999px;background:rgba(147,197,207,0.12);font-weight:600}
+
+    footer{margin-top:28px;text-align:center;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr;}
+      .grid{grid-template-columns:1fr}
+      .art-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:520px){
+      .art-grid{grid-template-columns:1fr}
+      nav{display:none}
+    }
+
+    /* small effects */
+    .float-blob{position:absolute;right:-100px;top:-40px;width:300px;height:300px;border-radius:50%;filter:blur(48px);opacity:0.15;background:linear-gradient(90deg,var(--accent),var(--accent-2));transform:rotate(20deg)}
+
+    /* modal */
+    .modal{position:fixed;inset:0;display:none;place-items:center;background:rgba(6,12,15,0.45);z-index:40}
+    .modal.open{display:grid}
+    .modal-card{width:92%;max-width:720px;background:var(--card);border-radius:16px;padding:20px}
+    .close{background:transparent;border:0;font-weight:700;cursor:pointer}
+  </style>
 </head>
 <body>
-  <!-- Content Here -->
+  <div class="float-blob" aria-hidden></div>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">AJ</div>
+        <div>
+          <div style="font-weight:700">Aeriel Jane Mingua</div>
+          <small style="color:var(--muted)">Guidance Counselor • Arts Advocate • Musician</small>
+        </div>
+      </div>
+      <nav aria-label="Main navigation">
+        <a href="#counseling">Counseling</a>
+        <a href="#arts">Arts</a>
+        <a href="#instruments">Instruments</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Welcome to AJ Mingua's Portfolio</h1>
+      <div class="hero">
+        <div class="card intro">
+          <h1>Helping people grow—one conversation at a time.</h1>
+          <p>I'm a guidance counselor who uses creativity and music to build connection, resilience, and self-expression. I offer individual guidance, group workshops, and art-based interventions.</p>
+          <div class="cta">
+            <button class="btn" id="contactBtn">Contact</button>
+            <button class="btn secondary" id="resumeBtn">View Education</button>
+          </div>
+
+          <section id="counseling" class="counseling" aria-labelledby="counseling-title" style="margin-top:18px">
+            <div class="section-title"><h2 id="counseling-title">Guidance Counseling</h2></div>
+            <div class="grid">
+              <div class="card">
+                <div class="tag">School Counseling</div>
+                <p>I support students with academic planning, social-emotional learning, behavior interventions, and career exploration. My approach is empathetic, strengths-based, and practical.</p>
+                <ul style="margin:8px 0 0;padding-left:18px;color:var(--muted)">
+                  <li>Individual counseling</li>
+                  <li>Group workshops (mindfulness & resilience)</li>
+                  <li>Parent-teacher consultations</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <div class="tag">Community Outreach</div>
+                <p>I design creative outreach programs that connect youth to arts and music as tools for healing and expression.</p>
+                <small style="color:var(--muted)">Example program: "Art for Emotional Literacy" — 6-week group.</small>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+        <aside class="card profile" aria-label="Profile">
+          <div class="heroImg"><img src="assets/Aj mingua.png" alt=""></div>
+          <div class="avatar">AJVM</div>
+          <div class="meta">
+            <div style="font-weight:700">Aeriel Jane Mingua</div>
+            <small>Licensed Guidance Counselor</small>
+          </div>
+
+          <div style="margin-top:12px;width:100%">
+            <div style="display:flex;gap:8px;justify-content:center">
+              <button class="btn" style="padding:8px 12px;font-size:14px" onclick="document.getElementById('contactBtn').click()">Hire me</button>
+              <button class="btn secondary" id="portfolioDownload">Download CV</button>
+            </div>
+            <div style="margin-top:12px;color:var(--muted);font-size:13px;text-align:center">Based in Laguna • Open to remote workshops</div>
+          </div>
+        </aside>
+      </div>
+
+      <section id="arts">
+        <div class="section-title"><h2>Passion in Arts</h2></div>
+        <div class="card">
+          <p style="color:var(--muted)">I practice mixed media, painting, and creative facilitation. Below are a few sample thumbnails — click to enlarge.</p>
+          <div class="art-grid" id="artGrid">
+            <div class="art-item" data-title="Mixed Media 1"> <!-- placeholder visual -->
+              <svg width="100%" height="100%" viewBox="0 0 200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="200" height="120" fill="#f7fbfb"/>
+                <circle cx="40" cy="30" r="26" fill="rgba(147,197,207,0.18)"/>
+                <rect x="80" y="20" width="90" height="70" rx="8" fill="rgba(106,166,163,0.12)"/>
+              </svg>
+            </div>
+            <div class="art-item" data-title="Watercolor Study">
+              <svg width="100%" height="100%" viewBox="0 0 200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="200" height="120" fill="#fff"/>
+                <path d="M0 80 Q50 10 120 70 T240 50" fill="none" stroke="rgba(147,197,207,0.25)" stroke-width="12" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="art-item" data-title="Community Mural">
+              <svg width="100%" height="100%" viewBox="0 0 200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="200" height="120" fill="#fbffff"/>
+                <rect x="20" y="20" width="70" height="70" rx="6" fill="rgba(106,166,163,0.12)"/>
+                <rect x="110" y="30" width="60" height="40" rx="6" fill="rgba(147,197,207,0.12)"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="instruments">
+        <div class="section-title"><h2>Instruments</h2></div>
+        <div class="card">
+          <p style="color:var(--muted)">I play violin and piano — I incorporate simple songs and rhythm exercises into sessions to help clients regulate emotions and build confidence.</p>
+          <div class="instr-list">
+            <div class="instr">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <path d="M3 3v18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div style="flex:1">
+                <div style="font-weight:700">Violin</div>
+                <small style="color:var(--muted)">Classical</small>
+              </div>
+              <button class="btn secondary" onclick="alert('Add your audio file or link in the HTML to use this control.')">Play sample</button>
+            </div>
+
+            <div class="instr">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M4 20c4-6 8-6 16 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+              <div style="flex:1">
+                <div style="font-weight:700">Piano / Keys</div>
+                <small style="color:var(--muted)">Simple scales & lullabies for calming</small>
+              </div>
+              <button class="btn secondary" onclick="alert('Replace this with an audio embed or player in your environment.')">Play sample</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="section-title"><h2>About & Education</h2></div>
+        <div class="card edu">
+          <div class="row">
+            <div style="flex:1">
+              <p style="margin:0">I'm a licensed guidance counselor with experience in schools and community programs. My practice blends evidence-based counseling with creative arts therapies to make sessions engaging and meaningful.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+              <div class="chip">Empathy-first</div>
+              <div class="chip">Creative methods</div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap">
+            <div style="min-width:220px">
+              <div style="font-weight:700">Education</div>
+              <div style="color:var(--muted);font-size:14px">BS Psychology — Polytechnic University of the Philippines, 2017</div>
+              <div style="color:var(--muted);font-size:14px;margin-top:6px">High School - Ibayiw Integrated National High School, 2013</div>
+            </div>
+
+            <div style="min-width:220px">
+              <div style="font-weight:700">Certifications</div>
+              <div style="color:var(--muted);font-size:14px">Licensed Guidance Counselor (PRC)</div>
+              <div style="color:var(--muted);font-size:14px">Certificate: Lorem</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;display:flex;gap:8px">
+            <button class="btn" id="contactNow">Book a consultation</button>
+            <button class="btn secondary" id="downloadBio">Download bio</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div style="color:var(--muted)">© "Aeriel Jane Mingua" — Guidance Counseling Portfolio • Built with care <a href="fea2127.github.io">Alfea Mingua</a></div>
+    </footer>
+  </div>
+
+  <!-- modal for art / education -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <strong id="modalTitle">Preview</strong>
+        <button class="close" id="closeModal">✕</button>
+      </div>
+      <div id="modalContent" style="color:var(--muted)">Content</div>
+    </div>
+  </div>
+
+  <script>
+    // Smooth scroll for nav
+    document.querySelectorAll('nav a').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+      })
+    })
+
+    // Art tile click -> modal
+    document.querySelectorAll('.art-item').forEach(it=>{
+      it.addEventListener('click', ()=>{
+        const title = it.getAttribute('data-title') || 'Artwork';
+        openModal(title, '<p style="margin:0 0 12px">This is a placeholder preview for "'+title+'". Replace with your full image and description.</p><div style="display:flex;gap:8px"><button class="btn" onclick="downloadPlaceholder()">Download image</button><button class="btn secondary" onclick="closeModal()">Close</button></div>');
+      })
+    })
+
+    // Modal functions
+    function openModal(title, html){
+      const modal = document.getElementById('modal');
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalContent').innerHTML = html;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+    }
+    function closeModal(){
+      const modal = document.getElementById('modal');
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+    }
+    document.getElementById('closeModal').addEventListener('click', closeModal);
+    document.getElementById('modal').addEventListener('click', (e)=>{ if(e.target===e.currentTarget) closeModal(); });
+
+    // Buttons
+    document.getElementById('resumeBtn').addEventListener('click', ()=>{
+      openModal('Education', '<p style="margin-top:0">MA Counseling Psychology — University of the Philippines, 2020</p><p>BS Psychology — Ateneo de Manila University, 2016</p><p style="color:var(--muted);margin-top:8px">Licensed Guidance Counselor (PRC) • Certificate: Art-based Interventions</p>');
+    })
+
+    document.getElementById('contactBtn').addEventListener('click', ()=>{
+      openModal('Contact', '<p style="margin:0 0 8px">Email: ajmingua8@example.com</p><p style="margin:0 0 8px">Phone: +63 905 269 5246</p>');
+    })
+
+    document.getElementById('contactNow').addEventListener('click', ()=>{
+      openModal('Book a consultation', '<p style="margin:0 0 8px">To book a consultation, email <strong>aurelia@example.com</strong> or call +63 912 345 6789.</p><p style="color:var(--muted)">Tip: integrate Calendly or your scheduling tool and paste iframe/link here.</p>');
+    })
+
+    document.getElementById('portfolioDownload').addEventListener('click', ()=>{
+      alert('Replace this button with a real CV download by linking a file or generating a PDF.');
+    })
+    document.getElementById('downloadBio').addEventListener('click', ()=>{
+      alert('You can generate a downloadable bio (PDF) on the server or client-side. I can add client-side PDF code if you want.');
+    })
+
+    function downloadPlaceholder(){
+      alert('This is a placeholder. Replace with your image asset and implement real download.');
+    }
+
+    // Accessibility: close modal with Escape
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape') closeModal();
+    });
+  </script>
 </body>
 </html>
