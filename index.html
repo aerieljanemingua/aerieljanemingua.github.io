@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,25 +9,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg: #f9fbfc;
+      --bg: #ffffff;
       --card: #ffffff;
-      --accent: #5a8c8a; /* professional teal */
-      --accent-2: #7fa9a7; /* lighter teal */
-      --accent-3: #e8f4f3; /* very light teal */
-      --muted: #5a6770;
-      --text: #2a3439;
+      --accent: #EECF96; /* elegant gold */
+      --accent-2: #18304C; /* deep navy */
+      --accent-3: #274368; /* medium blue */
+      --muted: #5A5A5A; /* medium gray */
+      --light: #D2D2D2; /* light gray */
+      --text: #18304C;
       --radius: 12px;
-      --shadow: 0 6px 20px rgba(14,30,37,0.06);
-      --shadow-light: 0 4px 12px rgba(14,30,37,0.04);
+      --shadow: 0 6px 20px rgba(24,48,76,0.08);
+      --shadow-light: 0 4px 12px rgba(24,48,76,0.04);
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
       color-scheme: light;
     }
+    
     *{box-sizing:border-box}
-    html,body{height:100%}
+    html,body{height:100%; margin:0; padding:0; overflow-x:hidden}
+    
     body{
-      margin:0;
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(127,169,167,0.05), transparent 8%),
-                  radial-gradient(800px 500px at 90% 90%, rgba(90,140,138,0.04), transparent 10%),
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(238,207,150,0.05), transparent 8%),
+                  radial-gradient(800px 500px at 90% 90%, rgba(24,48,76,0.03), transparent 10%),
                   var(--bg);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
@@ -38,67 +38,69 @@
     }
 
     /* Layout */
-    .container{max-width:1200px;margin:0 auto;padding:24px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0}
-    .brand{display:flex;gap:16px;align-items:center}
-    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:white;font-weight:700;font-size:20px;box-shadow:var(--shadow)}
-    nav{display:flex;gap:8px;align-items:center}
-    nav a{color:var(--muted);text-decoration:none;padding:8px 16px;border-radius:8px;font-weight:500;transition:all 0.2s ease}
-    nav a:hover{background:var(--accent-3);color:var(--accent)}
+    .container{max-width:1200px; margin:0 auto; padding:0 24px}
+    header{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 0}
+    .brand{display:flex; gap:16px; align-items:center}
+    .logo{width:56px; height:56px; border-radius:12px; background:linear-gradient(135deg,var(--accent-2),var(--accent-3)); display:grid; place-items:center; color:white; font-weight:700; font-size:20px; box-shadow:var(--shadow)}
+    nav{display:flex; gap:8px; align-items:center}
+    nav a{color:var(--muted); text-decoration:none; padding:8px 16px; border-radius:8px; font-weight:500; transition:all 0.2s ease}
+    nav a:hover{background:rgba(238,207,150,0.1); color:var(--accent-2)}
 
     /* Hero */
-    .hero{display:grid;grid-template-columns:1fr 320px;gap:32px;align-items:start;margin:28px 0 40px}
-    .heroImg img{width:100%;border-radius:16px;object-fit:cover;box-shadow:var(--shadow);margin-bottom:16px}
-    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;border:1px solid rgba(0,0,0,0.03)}
-    .intro h1{margin:0;font-size:32px;line-height:1.2;color:var(--text)}
-    .intro p{color:var(--muted);margin:16px 0 24px;font-size:18px}
-    .cta{display:flex;gap:16px;flex-wrap:wrap}
-    .btn{background:var(--accent);color:white;padding:12px 20px;border-radius:8px;border:0;font-weight:600;cursor:pointer;transition:all 0.2s ease;font-size:16px}
-    .btn:hover{background:var(--accent-2);transform:translateY(-2px);box-shadow:0 4px 12px rgba(90,140,138,0.2)}
-    .btn.secondary{background:transparent;color:var(--accent);border:2px solid rgba(90,140,138,0.15)}
-    .btn.secondary:hover{background:var(--accent-3);transform:translateY(-2px)}
+    .hero{display:grid; grid-template-columns:1fr 320px; gap:32px; align-items:start; margin:28px 0 40px}
+    .heroImg img{width:100%; border-radius:16px; object-fit:cover; box-shadow:var(--shadow); margin-bottom:16px}
+    .card{background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:28px; border:1px solid rgba(0,0,0,0.03)}
+    .intro h1{margin:0; font-size:32px; line-height:1.2; color:var(--text)}
+    .intro p{color:var(--muted); margin:16px 0 24px; font-size:18px}
+    .cta{display:flex; gap:16px; flex-wrap:wrap}
+    .btn{background:var(--accent-2); color:white; padding:12px 20px; border-radius:8px; border:0; font-weight:600; cursor:pointer; transition:all 0.2s ease; font-size:16px}
+    .btn:hover{background:var(--accent-3); transform:translateY(-2px); box-shadow:0 4px 12px rgba(24,48,76,0.2)}
+    .btn.secondary{background:transparent; color:var(--accent-2); border:2px solid rgba(24,48,76,0.15)}
+    .btn.secondary:hover{background:rgba(24,48,76,0.05); transform:translateY(-2px)}
+    .btn.accent{background:var(--accent); color:var(--accent-2)}
+    .btn.accent:hover{background:#e6c086; transform:translateY(-2px); box-shadow:0 4px 12px rgba(238,207,150,0.3)}
 
     /* Right column profile */
-    .profile{display:flex;flex-direction:column;align-items:center;padding:24px;text-align:center}
-    .avatar{width:120px;height:120px;border-radius:16px;background:linear-gradient(180deg,#fff,#f1f6f6);display:grid;place-items:center;font-weight:700;font-size:28px;margin-bottom:16px;box-shadow:var(--shadow-light)}
+    .profile{display:flex; flex-direction:column; align-items:center; padding:24px; text-align:center}
+    .avatar{width:120px; height:120px; border-radius:16px; background:linear-gradient(180deg,#fff,#f8f8f8); display:grid; place-items:center; font-weight:700; font-size:28px; margin-bottom:16px; box-shadow:var(--shadow-light); color:var(--accent-2)}
     .meta{margin-top:12px}
-    .meta small{display:block;color:var(--muted);margin-top:4px}
+    .meta small{display:block; color:var(--muted); margin-top:4px}
 
     /* Sections */
     section{margin:40px 0}
-    .section-title{display:flex;align-items:center;gap:12px;margin-bottom:20px}
-    .section-title h2{margin:0;font-size:24px;color:var(--text)}
-    .section-title .divider{flex:1;height:1px;background:rgba(0,0,0,0.08)}
-    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+    .section-title{display:flex; align-items:center; gap:12px; margin-bottom:20px}
+    .section-title h2{margin:0; font-size:24px; color:var(--text)}
+    .section-title .divider{flex:1; height:1px; background:var(--light)}
 
     /* Counseling card */
-    .counseling .tag{display:inline-block;background:linear-gradient(90deg,rgba(90,140,138,0.12),transparent);padding:6px 14px;border-radius:999px;font-weight:600;color:var(--accent);margin-bottom:12px}
-    .counseling p{color:var(--muted);margin-top:12px}
-    .counseling ul{color:var(--muted);margin:12px 0 0;padding-left:20px}
+    .grid{display:grid; grid-template-columns:repeat(2,1fr); gap:24px}
+    .counseling .tag{display:inline-block; background:linear-gradient(90deg,rgba(238,207,150,0.2),transparent); padding:6px 14px; border-radius:999px; font-weight:600; color:var(--accent-2); margin-bottom:12px}
+    .counseling p{color:var(--muted); margin-top:12px}
+    .counseling ul{color:var(--muted); margin:12px 0 0; padding-left:20px}
 
     /* Arts gallery */
-    .art-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .art-item{height:140px;border-radius:12px;overflow:hidden;display:grid;place-items:center;background:linear-gradient(180deg,rgba(127,169,167,0.1),rgba(90,140,138,0.05));cursor:pointer;transition:all 0.3s ease}
-    .art-item:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,0.08)}
-    .art-item img{width:100%;height:100%;object-fit:cover;display:block}
+    .art-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    .art-item{height:140px; border-radius:12px; overflow:hidden; display:grid; place-items:center; background:linear-gradient(180deg,rgba(238,207,150,0.1),rgba(24,48,76,0.05)); cursor:pointer; transition:all 0.3s ease}
+    .art-item:hover{transform:translateY(-4px); box-shadow:0 8px 20px rgba(0,0,0,0.08)}
+    .art-item img{width:100%; height:100%; object-fit:cover; display:block}
 
     /* Instruments */
-    .instr-list{display:flex;flex-direction:column;gap:16px}
-    .instr{display:flex;align-items:center;gap:16px;padding:16px;border-radius:12px;background:linear-gradient(180deg,#fff,#f8fcfc);border:1px solid rgba(10,20,25,0.04);transition:all 0.2s ease}
-    .instr:hover{background:#f8fcfc;box-shadow:var(--shadow-light)}
+    .instr-list{display:flex; flex-direction:column; gap:16px}
+    .instr{display:flex; align-items:center; gap:16px; padding:16px; border-radius:12px; background:linear-gradient(180deg,#fff,#f8f8f8); border:1px solid var(--light); transition:all 0.2s ease}
+    .instr:hover{background:#f8f8f8; box-shadow:var(--shadow-light)}
 
     /* Certifications & Achievements */
-    .cert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-    .cert-item{padding:20px;border-radius:12px;background:var(--accent-3);border-left:4px solid var(--accent)}
-    .cert-item h3{margin:0 0 8px;font-size:18px}
-    .cert-item p{margin:0;color:var(--muted);font-size:15px}
+    .cert-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px}
+    .cert-item{padding:20px; border-radius:12px; background:rgba(238,207,150,0.1); border-left:4px solid var(--accent)}
+    .cert-item h3{margin:0 0 8px; font-size:18px}
+    .cert-item p{margin:0; color:var(--muted); font-size:15px}
 
     /* About / education */
-    .edu{display:flex;flex-direction:column;gap:12px}
-    .edu .row{display:flex;gap:16px;align-items:center}
-    .chip{padding:8px 14px;border-radius:999px;background:rgba(127,169,167,0.12);font-weight:600;color:var(--accent);font-size:14px}
+    .edu{display:flex; flex-direction:column; gap:12px}
+    .edu .row{display:flex; gap:16px; align-items:center}
+    .chip{padding:8px 14px; border-radius:999px; background:rgba(238,207,150,0.15); font-weight:600; color:var(--accent-2); font-size:14px}
 
-    footer{margin-top:60px;text-align:center;color:var(--muted);padding:30px 0;border-top:1px solid rgba(0,0,0,0.06)}
+    footer{margin-top:60px; text-align:center; color:var(--muted); padding:30px 0; border-top:1px solid var(--light)}
 
     /* Responsive */
     @media (max-width:968px){
@@ -109,122 +111,26 @@
     }
     @media (max-width:768px){
       .art-grid{grid-template-columns:1fr}
-      header{flex-direction:column;align-items:flex-start;gap:20px}
-      nav{width:100%;justify-content:center;flex-wrap:wrap}
-      .cta{flex-direction:column;align-items:flex-start}
+      header{flex-direction:column; align-items:flex-start; gap:20px}
+      nav{width:100%; justify-content:center; flex-wrap:wrap}
+      .cta{flex-direction:column; align-items:flex-start}
+      .container{padding:0 16px}
+    }
+    @media (max-width:480px){
+      .intro h1{font-size:26px}
+      .card{padding:20px}
+      .btn{width:100%; margin-bottom:8px}
+      .edu .row{flex-direction:column; align-items:flex-start}
     }
 
     /* small effects */
-    .float-blob{position:absolute;right:-100px;top:-40px;width:300px;height:300px;border-radius:50%;filter:blur(48px);opacity:0.1;background:linear-gradient(90deg,var(--accent),var(--accent-2));transform:rotate(20deg);z-index:-1}
+    .float-blob{position:absolute; right:-100px; top:-40px; width:300px; height:300px; border-radius:50%; filter:blur(48px); opacity:0.1; background:linear-gradient(90deg,var(--accent-2),var(--accent-3)); transform:rotate(20deg); z-index:-1}
 
     /* modal */
-    .modal{position:fixed;inset:0;display:none;place-items:center;background:rgba(6,12,15,0.6);z-index:40;padding:20px}
+    .modal{position:fixed; inset:0; display:none; place-items:center; background:rgba(6,12,15,0.6); z-index:40; padding:20px}
     .modal.open{display:grid}
-    .modal-card{width:92%;max-width:720px;background:var(--card);border-radius:16px;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,0.2);max-height:90vh;overflow-y:auto}
-    .close{background:transparent;border:0;font-weight:700;cursor:pointer;font-size:20px;padding:4px;color:var(--muted)}
-  </style>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Guidance Counselor — AJ Mingua</title>
-  <meta name="description" content="Modern psych-themed portfolio for a guidance counselor showcasing counseling work, arts, and instruments." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg: #f6fbfb;
-      --card: #ffffff;
-      --accent: #6aa6a3; /* soft teal */
-      --accent-2: #93c5cf; /* lighter */
-      --muted: #6b7280;
-      --glass: rgba(255,255,255,0.6);
-      --radius: 14px;
-      --shadow: 0 8px 24px rgba(14,30,37,0.08);
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      color-scheme: light;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(147,197,207,0.08), transparent 8%),
-                  radial-gradient(800px 500px at 90% 90%, rgba(106,166,163,0.06), transparent 10%),
-                  var(--bg);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
-    }
-
-    /* Layout */
-    .container{max-width:1100px;margin:32px auto;padding:24px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:white;font-weight:700;font-size:20px;box-shadow:var(--shadow)}
-    nav{display:flex;gap:12px;align-items:center}
-    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600}
-    nav a:hover{background:rgba(0,0,0,0.04);color:var(--accent)}
-
-    /* Hero */
-    .heroImg img{width:100%;border-radius:16px;object-fit:cover;box-shadow:var(--shadow);margin-bottom:12px}
-    main h1{font-size:24px;margin-top:18px}
-    .hero{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:center;margin-top:28px}
-    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
-    .intro h1{margin:0;font-size:32px;line-height:1.05}
-    .intro p{color:var(--muted);margin:12px 0 18px}
-    .cta{display:flex;gap:12px}
-    .btn{background:var(--accent);color:white;padding:10px 14px;border-radius:10px;border:0;font-weight:700;cursor:pointer}
-    .btn.secondary{background:transparent;color:var(--accent);border:2px solid rgba(106,166,163,0.12)}
-
-    /* Right column profile */
-    .profile{display:flex;flex-direction:column;align-items:center;padding:18px}
-    .avatar{width:120px;height:120px;border-radius:16px;background:linear-gradient(180deg,#fff,#f1f6f6);display:grid;place-items:center;font-weight:700;font-size:28px}
-    .meta{margin-top:12px;text-align:center}
-    .meta small{display:block;color:var(--muted)}
-
-    /* Sections */
-    section{margin-top:18px}
-    .section-title{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-    .section-title h2{margin:0;font-size:20px}
-    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-
-    /* Counseling card */
-    .counseling .tag{display:inline-block;background:linear-gradient(90deg,rgba(106,166,163,0.12),transparent);padding:6px 10px;border-radius:999px;font-weight:600;color:var(--accent)}
-    .counseling p{color:var(--muted);margin-top:8px}
-
-    /* Arts gallery */
-    .art-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-    .art-item{height:110px;border-radius:12px;overflow:hidden;display:grid;place-items:center;background:linear-gradient(180deg,rgba(147,197,207,0.14),rgba(106,166,163,0.06));cursor:pointer}
-    .art-item img{width:100%;height:100%;object-fit:cover;display:block}
-
-    /* Instruments */
-    .instr-list{display:flex;flex-direction:column;gap:10px}
-    .instr{display:flex;align-items:center;gap:12px;padding:10px;border-radius:12px;background:linear-gradient(180deg,#fff,#fbffff);border:1px solid rgba(10,20,25,0.02)}
-
-    /* About / education */
-    .edu{display:flex;flex-direction:column;gap:8px}
-    .edu .row{display:flex;gap:12px;align-items:center}
-    .chip{padding:6px 10px;border-radius:999px;background:rgba(147,197,207,0.12);font-weight:600}
-
-    footer{margin-top:28px;text-align:center;color:var(--muted)}
-
-    /* Responsive */
-    @media (max-width:880px){
-      .hero{grid-template-columns:1fr;}
-      .grid{grid-template-columns:1fr}
-      .art-grid{grid-template-columns:repeat(2,1fr)}
-    }
-    @media (max-width:520px){
-      .art-grid{grid-template-columns:1fr}
-      nav{display:none}
-    }
-
-    /* small effects */
-    .float-blob{position:absolute;right:-100px;top:-40px;width:300px;height:300px;border-radius:50%;filter:blur(48px);opacity:0.15;background:linear-gradient(90deg,var(--accent),var(--accent-2));transform:rotate(20deg)}
-
-    /* modal */
-    .modal{position:fixed;inset:0;display:none;place-items:center;background:rgba(6,12,15,0.45);z-index:40}
-    .modal.open{display:grid}
-    .modal-card{width:92%;max-width:720px;background:var(--card);border-radius:16px;padding:20px}
-    .close{background:transparent;border:0;font-weight:700;cursor:pointer}
+    .modal-card{width:92%; max-width:720px; background:var(--card); border-radius:16px; padding:28px; box-shadow:0 20px 60px rgba(0,0,0,0.2); max-height:90vh; overflow-y:auto}
+    .close{background:transparent; border:0; font-weight:700; cursor:pointer; font-size:20px; padding:4px; color:var(--muted)}
   </style>
 </head>
 <body>
@@ -234,7 +140,7 @@
       <div class="brand">
         <div class="logo">AJ</div>
         <div>
-          <div style="font-weight:700;font-size:20px">Aeriel Jane Mingua, LGC</div>
+          <div style="font-weight:700;font-size:20px;color:var(--accent-2)">Aeriel Jane Mingua, LGC</div>
           <small style="color:var(--muted)">Licensed Guidance Counselor • Creative Arts Therapist</small>
         </div>
       </div>
@@ -253,7 +159,7 @@
           <h1>Integrating Psychology with Creative Arts for Holistic Well-being</h1>
           <p>As a Licensed Guidance Counselor with specialized training in creative arts therapy, I provide evidence-based counseling services that incorporate artistic expression and musical elements to promote emotional healing and personal growth.</p>
           <div class="cta">
-            <button class="btn" id="contactBtn">Schedule Consultation</button>
+            <button class="btn accent" id="contactBtn">Schedule Consultation</button>
             <button class="btn secondary" id="resumeBtn">View Credentials</button>
           </div>
 
@@ -290,17 +196,16 @@
         </div>
 
         <aside class="card profile" aria-label="Profile">
-          <div class="heroImg"><img src="assets/Aj mingua.png" alt="Aeriel Jane Mingua, Licensed Guidance Counselor"></div>
           <div class="avatar">AJM</div>
           <div class="meta">
-            <div style="font-weight:700;font-size:18px">Aeriel Jane Mingua, LGC</div>
+            <div style="font-weight:700;font-size:18px;color:var(--accent-2)">Aeriel Jane Mingua, LGC</div>
             <small>Licensed Guidance Counselor</small>
             <small>Registered Arts Therapist</small>
           </div>
 
           <div style="margin-top:20px;width:100%">
             <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-              <button class="btn" style="padding:10px 16px;font-size:14px" onclick="document.getElementById('contactBtn').click()">Contact Me</button>
+              <button class="btn accent" style="padding:10px 16px;font-size:14px" onclick="document.getElementById('contactBtn').click()">Contact Me</button>
               <button class="btn secondary" id="portfolioDownload">Download CV</button>
             </div>
             <div style="margin-top:16px;color:var(--muted);font-size:14px;text-align:center">Based in Laguna • Available for remote sessions</div>
@@ -318,26 +223,26 @@
           <div class="art-grid" id="artGrid">
             <div class="art-item" data-title="Expressive Painting">
               <svg width="100%" height="100%" viewBox="0 0 200 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="200" height="140" fill="#f7fbfb"/>
-                <circle cx="60" cy="40" r="30" fill="rgba(147,197,207,0.18)"/>
-                <rect x="100" y="30" width="80" height="80" rx="8" fill="rgba(106,166,163,0.12)"/>
-                <path d="M30 100 Q70 60 120 90 T190 80" fill="none" stroke="rgba(147,197,207,0.25)" stroke-width="8" stroke-linecap="round"/>
+                <rect width="200" height="140" fill="#f7f7f7"/>
+                <circle cx="60" cy="40" r="30" fill="rgba(238,207,150,0.2)"/>
+                <rect x="100" y="30" width="80" height="80" rx="8" fill="rgba(24,48,76,0.1)"/>
+                <path d="M30 100 Q70 60 120 90 T190 80" fill="none" stroke="rgba(238,207,150,0.3)" stroke-width="8" stroke-linecap="round"/>
               </svg>
             </div>
             <div class="art-item" data-title="Mixed Media Exploration">
               <svg width="100%" height="100%" viewBox="0 0 200 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="200" height="140" fill="#fff"/>
-                <rect x="30" y="30" width="50" height="50" rx="6" fill="rgba(106,166,163,0.12)"/>
-                <circle cx="130" cy="50" r="25" fill="rgba(147,197,207,0.18)"/>
-                <path d="M40 100 L160 100 L140 120 L60 120 Z" fill="rgba(90,140,138,0.1)"/>
+                <rect x="30" y="30" width="50" height="50" rx="6" fill="rgba(24,48,76,0.1)"/>
+                <circle cx="130" cy="50" r="25" fill="rgba(238,207,150,0.2)"/>
+                <path d="M40 100 L160 100 L140 120 L60 120 Z" fill="rgba(39,67,104,0.1)"/>
               </svg>
             </div>
             <div class="art-item" data-title="Therapeutic Collage">
               <svg width="100%" height="100%" viewBox="0 0 200 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="200" height="140" fill="#fbffff"/>
-                <rect x="20" y="20" width="70" height="70" rx="6" fill="rgba(106,166,163,0.12)"/>
-                <rect x="110" y="30" width="60" height="40" rx="6" fill="rgba(147,197,207,0.12)"/>
-                <circle cx="150" cy="100" r="20" fill="rgba(90,140,138,0.1)"/>
+                <rect width="200" height="140" fill="#f8f8f8"/>
+                <rect x="20" y="20" width="70" height="70" rx="6" fill="rgba(24,48,76,0.1)"/>
+                <rect x="110" y="30" width="60" height="40" rx="6" fill="rgba(238,207,150,0.2)"/>
+                <circle cx="150" cy="100" r="20" fill="rgba(39,67,104,0.1)"/>
               </svg>
             </div>
           </div>
@@ -354,7 +259,7 @@
           <div class="instr-list">
             <div class="instr">
               <svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden>
-                <path d="M3 3v18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3 3v18h18" stroke="var(--accent-2)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               <div style="flex:1">
                 <div style="font-weight:700">Violin Therapy</div>
@@ -365,8 +270,8 @@
 
             <div class="instr">
               <svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden>
-                <circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="1.6"/>
-                <path d="M4 20c4-6 8-6 16 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <circle cx="12" cy="8" r="3" stroke="var(--accent-2)" stroke-width="1.6"/>
+                <path d="M4 20c4-6 8-6 16 0" stroke="var(--accent-2)" stroke-width="1.6" stroke-linecap="round"/>
               </svg>
               <div style="flex:1">
                 <div style="font-weight:700">Piano / Keyboard Therapy</div>
@@ -422,7 +327,7 @@
 
           <div style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
             <div>
-              <div style="font-weight:700;margin-bottom:12px;color:var(--accent)">Education</div>
+              <div style="font-weight:700;margin-bottom:12px;color:var(--accent-2)">Education</div>
               <div style="color:var(--muted);margin-bottom:8px">
                 <strong>Master of Arts in Counseling Psychology</strong><br>
                 University of the Philippines • 2020
@@ -434,7 +339,7 @@
             </div>
 
             <div>
-              <div style="font-weight:700;margin-bottom:12px;color:var(--accent)">Professional Affiliations</div>
+              <div style="font-weight:700;margin-bottom:12px;color:var(--accent-2)">Professional Affiliations</div>
               <div style="color:var(--muted);margin-bottom:8px">
                 <strong>Philippine Guidance and Counseling Association</strong><br>
                 Active Member since 2018
@@ -447,7 +352,7 @@
           </div>
 
           <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
-            <button class="btn" id="contactNow">Schedule Initial Consultation</button>
+            <button class="btn accent" id="contactNow">Schedule Initial Consultation</button>
             <button class="btn secondary" id="downloadBio">Download Professional Bio</button>
           </div>
         </div>
@@ -457,7 +362,7 @@
 
     <footer>
       <div style="color:var(--muted);margin-bottom:8px">Aeriel Jane Mingua, LGC • Guidance Counseling & Creative Arts Therapy</div>
-      <div style="color:var(--muted);font-size:14px">© 2023 All rights reserved • <a href="#" style="color:var(--accent)">Privacy Policy</a> • <a href="#" style="color:var(--accent)">Terms of Service</a></div>
+      <div style="color:var(--muted);font-size:14px">© 2023 All rights reserved • <a href="#" style="color:var(--accent-2)">Privacy Policy</a> • <a href="#" style="color:var(--accent-2)">Terms of Service</a></div>
     </footer>
   </div>
 
@@ -487,7 +392,7 @@
     document.querySelectorAll('.art-item').forEach(it=>{
       it.addEventListener('click', ()=>{
         const title = it.getAttribute('data-title') || 'Artwork';
-        openModal(title, '<p style="margin:0 0 16px">This is a preview of my therapeutic art work titled "'+title+'". In practice, I guide clients through similar creative processes to facilitate emotional expression and self-discovery.</p><div style="display:flex;gap:12px"><button class="btn" onclick="downloadPlaceholder()">Request Art Therapy Info</button><button class="btn secondary" onclick="closeModal()">Close</button></div>');
+        openModal(title, '<p style="margin:0 0 16px">This is a preview of my therapeutic art work titled "'+title+'". In practice, I guide clients through similar creative processes to facilitate emotional expression and self-discovery.</p><div style="display:flex;gap:12px"><button class="btn accent" onclick="downloadPlaceholder()">Request Art Therapy Info</button><button class="btn secondary" onclick="closeModal()">Close</button></div>');
       })
     })
 
@@ -517,7 +422,7 @@
     })
 
     document.getElementById('contactNow').addEventListener('click', ()=>{
-      openModal('Initial Consultation', '<p style="margin:0 0 16px">I offer a complimentary 15-minute phone consultation to discuss your needs and determine if my services are the right fit for you.</p><p style="margin:0 0 8px"><strong>To schedule:</strong> Email ajmingua.professional@example.com with "Consultation Request" in the subject line.</p><p style="margin:0 0 16px">Please include your availability and a brief description of what you\'re hoping to address in counseling.</p><div style="display:flex;gap:12px"><button class="btn" onclick="closeModal(); document.getElementById(\'contactBtn\').click();">Contact Now</button><button class="btn secondary" onclick="closeModal()">Close</button></div>');
+      openModal('Initial Consultation', '<p style="margin:0 0 16px">I offer a complimentary 15-minute phone consultation to discuss your needs and determine if my services are the right fit for you.</p><p style="margin:0 0 8px"><strong>To schedule:</strong> Email ajmingua.professional@example.com with "Consultation Request" in the subject line.</p><p style="margin:0 0 16px">Please include your availability and a brief description of what you\'re hoping to address in counseling.</p><div style="display:flex;gap:12px"><button class="btn accent" onclick="closeModal(); document.getElementById(\'contactBtn\').click();">Contact Now</button><button class="btn secondary" onclick="closeModal()">Close</button></div>');
     })
 
     document.getElementById('portfolioDownload').addEventListener('click', ()=>{
@@ -529,252 +434,6 @@
 
     function downloadPlaceholder(){
       alert('This would open a form to request more information about art therapy services in a live implementation.');
-    }
-
-    // Accessibility: close modal with Escape
-    document.addEventListener('keydown', (e)=>{
-      if(e.key === 'Escape') closeModal();
-    });
-  </script>
-  <div class="float-blob" aria-hidden></div>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo">AJ</div>
-        <div>
-          <div style="font-weight:700">Aeriel Jane Mingua</div>
-          <small style="color:var(--muted)">Guidance Counselor • Arts Advocate • Musician</small>
-        </div>
-      </div>
-      <nav aria-label="Main navigation">
-        <a href="#counseling">Counseling</a>
-        <a href="#arts">Arts</a>
-        <a href="#instruments">Instruments</a>
-        <a href="#about">About</a>
-      </nav>
-    </header>
-
-    <main>
-      <h1>Welcome to AJ Mingua's Portfolio</h1>
-      <div class="hero">
-        <div class="card intro">
-          <h1>Helping people grow—one conversation at a time.</h1>
-          <p>I'm a guidance counselor who uses creativity and music to build connection, resilience, and self-expression. I offer individual guidance, group workshops, and art-based interventions.</p>
-          <div class="cta">
-            <button class="btn" id="contactBtn">Contact</button>
-            <button class="btn secondary" id="resumeBtn">View Education</button>
-          </div>
-
-          <section id="counseling" class="counseling" aria-labelledby="counseling-title" style="margin-top:18px">
-            <div class="section-title"><h2 id="counseling-title">Guidance Counseling</h2></div>
-            <div class="grid">
-              <div class="card">
-                <div class="tag">School Counseling</div>
-                <p>I support students with academic planning, social-emotional learning, behavior interventions, and career exploration. My approach is empathetic, strengths-based, and practical.</p>
-                <ul style="margin:8px 0 0;padding-left:18px;color:var(--muted)">
-                  <li>Individual counseling</li>
-                  <li>Group workshops (mindfulness & resilience)</li>
-                  <li>Parent-teacher consultations</li>
-                </ul>
-              </div>
-
-              <div class="card">
-                <div class="tag">Community Outreach</div>
-                <p>I design creative outreach programs that connect youth to arts and music as tools for healing and expression.</p>
-                <small style="color:var(--muted)">Example program: "Art for Emotional Literacy" — 6-week group.</small>
-              </div>
-            </div>
-          </section>
-
-        </div>
-
-        <aside class="card profile" aria-label="Profile">
-          <div class="heroImg"><img src="assets/Aj mingua.png" alt=""></div>
-          <div class="avatar">AJVM</div>
-          <div class="meta">
-            <div style="font-weight:700">Aeriel Jane Mingua</div>
-            <small>Licensed Guidance Counselor</small>
-          </div>
-
-          <div style="margin-top:12px;width:100%">
-            <div style="display:flex;gap:8px;justify-content:center">
-              <button class="btn" style="padding:8px 12px;font-size:14px" onclick="document.getElementById('contactBtn').click()">Hire me</button>
-              <button class="btn secondary" id="portfolioDownload">Download CV</button>
-            </div>
-            <div style="margin-top:12px;color:var(--muted);font-size:13px;text-align:center">Based in Laguna • Open to remote workshops</div>
-          </div>
-        </aside>
-      </div>
-
-      <section id="arts">
-        <div class="section-title"><h2>Passion in Arts</h2></div>
-        <div class="card">
-          <p style="color:var(--muted)">I practice mixed media, painting, and creative facilitation. Below are a few sample thumbnails — click to enlarge.</p>
-          <div class="art-grid" id="artGrid">
-            <div class="art-item" data-title="Mixed Media 1"> <!-- placeholder visual -->
-              <svg width="100%" height="100%" viewBox="0 0 200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="200" height="120" fill="#f7fbfb"/>
-                <circle cx="40" cy="30" r="26" fill="rgba(147,197,207,0.18)"/>
-                <rect x="80" y="20" width="90" height="70" rx="8" fill="rgba(106,166,163,0.12)"/>
-              </svg>
-            </div>
-            <div class="art-item" data-title="Watercolor Study">
-              <svg width="100%" height="100%" viewBox="0 0 200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="200" height="120" fill="#fff"/>
-                <path d="M0 80 Q50 10 120 70 T240 50" fill="none" stroke="rgba(147,197,207,0.25)" stroke-width="12" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div class="art-item" data-title="Community Mural">
-              <svg width="100%" height="100%" viewBox="0 0 200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="200" height="120" fill="#fbffff"/>
-                <rect x="20" y="20" width="70" height="70" rx="6" fill="rgba(106,166,163,0.12)"/>
-                <rect x="110" y="30" width="60" height="40" rx="6" fill="rgba(147,197,207,0.12)"/>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="instruments">
-        <div class="section-title"><h2>Instruments</h2></div>
-        <div class="card">
-          <p style="color:var(--muted)">I play violin and piano — I incorporate simple songs and rhythm exercises into sessions to help clients regulate emotions and build confidence.</p>
-          <div class="instr-list">
-            <div class="instr">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden>
-                <path d="M3 3v18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <div style="flex:1">
-                <div style="font-weight:700">Violin</div>
-                <small style="color:var(--muted)">Classical</small>
-              </div>
-              <button class="btn secondary" onclick="alert('Add your audio file or link in the HTML to use this control.')">Play sample</button>
-            </div>
-
-            <div class="instr">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden>
-                <circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="1.6"/>
-                <path d="M4 20c4-6 8-6 16 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-              </svg>
-              <div style="flex:1">
-                <div style="font-weight:700">Piano / Keys</div>
-                <small style="color:var(--muted)">Simple scales & lullabies for calming</small>
-              </div>
-              <button class="btn secondary" onclick="alert('Replace this with an audio embed or player in your environment.')">Play sample</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="about">
-        <div class="section-title"><h2>About & Education</h2></div>
-        <div class="card edu">
-          <div class="row">
-            <div style="flex:1">
-              <p style="margin:0">I'm a licensed guidance counselor with experience in schools and community programs. My practice blends evidence-based counseling with creative arts therapies to make sessions engaging and meaningful.</p>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
-              <div class="chip">Empathy-first</div>
-              <div class="chip">Creative methods</div>
-            </div>
-          </div>
-
-          <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap">
-            <div style="min-width:220px">
-              <div style="font-weight:700">Education</div>
-              <div style="color:var(--muted);font-size:14px">BS Psychology — Polytechnic University of the Philippines, 2017</div>
-              <div style="color:var(--muted);font-size:14px;margin-top:6px">High School - Ibayiw Integrated National High School, 2013</div>
-            </div>
-
-            <div style="min-width:220px">
-              <div style="font-weight:700">Certifications</div>
-              <div style="color:var(--muted);font-size:14px">Licensed Guidance Counselor (PRC)</div>
-              <div style="color:var(--muted);font-size:14px">Certificate: Lorem</div>
-            </div>
-          </div>
-
-          <div style="margin-top:14px;display:flex;gap:8px">
-            <button class="btn" id="contactNow">Book a consultation</button>
-            <button class="btn secondary" id="downloadBio">Download bio</button>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <footer>
-      <div style="color:var(--muted)">© "Aeriel Jane Mingua" — Guidance Counseling Portfolio • Built with care <a href="fea2127.github.io">Alfea Mingua</a></div>
-    </footer>
-  </div>
-
-  <!-- modal for art / education -->
-  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal-card">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-        <strong id="modalTitle">Preview</strong>
-        <button class="close" id="closeModal">✕</button>
-      </div>
-      <div id="modalContent" style="color:var(--muted)">Content</div>
-    </div>
-  </div>
-
-  <script>
-    // Smooth scroll for nav
-    document.querySelectorAll('nav a').forEach(a=>{
-      a.addEventListener('click', e=>{
-        e.preventDefault();
-        const id = a.getAttribute('href').slice(1);
-        const el = document.getElementById(id);
-        if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
-      })
-    })
-
-    // Art tile click -> modal
-    document.querySelectorAll('.art-item').forEach(it=>{
-      it.addEventListener('click', ()=>{
-        const title = it.getAttribute('data-title') || 'Artwork';
-        openModal(title, '<p style="margin:0 0 12px">This is a placeholder preview for "'+title+'". Replace with your full image and description.</p><div style="display:flex;gap:8px"><button class="btn" onclick="downloadPlaceholder()">Download image</button><button class="btn secondary" onclick="closeModal()">Close</button></div>');
-      })
-    })
-
-    // Modal functions
-    function openModal(title, html){
-      const modal = document.getElementById('modal');
-      document.getElementById('modalTitle').textContent = title;
-      document.getElementById('modalContent').innerHTML = html;
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden','false');
-    }
-    function closeModal(){
-      const modal = document.getElementById('modal');
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden','true');
-    }
-    document.getElementById('closeModal').addEventListener('click', closeModal);
-    document.getElementById('modal').addEventListener('click', (e)=>{ if(e.target===e.currentTarget) closeModal(); });
-
-    // Buttons
-    document.getElementById('resumeBtn').addEventListener('click', ()=>{
-      openModal('Education', '<p style="margin-top:0">MA Counseling Psychology — University of the Philippines, 2020</p><p>BS Psychology — Ateneo de Manila University, 2016</p><p style="color:var(--muted);margin-top:8px">Licensed Guidance Counselor (PRC) • Certificate: Art-based Interventions</p>');
-    })
-
-    document.getElementById('contactBtn').addEventListener('click', ()=>{
-      openModal('Contact', '<p style="margin:0 0 8px">Email: ajmingua8@example.com</p><p style="margin:0 0 8px">Phone: +63 905 269 5246</p>');
-    })
-
-    document.getElementById('contactNow').addEventListener('click', ()=>{
-      openModal('Book a consultation', '<p style="margin:0 0 8px">To book a consultation, email <strong>aurelia@example.com</strong> or call +63 912 345 6789.</p><p style="color:var(--muted)">Tip: integrate Calendly or your scheduling tool and paste iframe/link here.</p>');
-    })
-
-    document.getElementById('portfolioDownload').addEventListener('click', ()=>{
-      alert('Replace this button with a real CV download by linking a file or generating a PDF.');
-    })
-    document.getElementById('downloadBio').addEventListener('click', ()=>{
-      alert('You can generate a downloadable bio (PDF) on the server or client-side. I can add client-side PDF code if you want.');
-    })
-
-    function downloadPlaceholder(){
-      alert('This is a placeholder. Replace with your image asset and implement real download.');
     }
 
     // Accessibility: close modal with Escape
