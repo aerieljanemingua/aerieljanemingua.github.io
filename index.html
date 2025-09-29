@@ -1,6 +1,128 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aeriel Jane Mingua, LGC | Guidance Counseling & Creative Arts Therapy</title>
+  <meta name="description" content="Professional portfolio of Aeriel Jane Mingua, Licensed Guidance Counselor specializing in creative arts therapy, counseling services, and educational workshops." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #f9fbfc;
+      --card: #ffffff;
+      --accent: #5a8c8a; /* professional teal */
+      --accent-2: #7fa9a7; /* lighter teal */
+      --accent-3: #e8f4f3; /* very light teal */
+      --muted: #5a6770;
+      --text: #2a3439;
+      --radius: 12px;
+      --shadow: 0 6px 20px rgba(14,30,37,0.06);
+      --shadow-light: 0 4px 12px rgba(14,30,37,0.04);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color-scheme: light;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(127,169,167,0.05), transparent 8%),
+                  radial-gradient(800px 500px at 90% 90%, rgba(90,140,138,0.04), transparent 10%),
+                  var(--bg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      color: var(--text);
+    }
+
+    /* Layout */
+    .container{max-width:1200px;margin:0 auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0}
+    .brand{display:flex;gap:16px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:white;font-weight:700;font-size:20px;box-shadow:var(--shadow)}
+    nav{display:flex;gap:8px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 16px;border-radius:8px;font-weight:500;transition:all 0.2s ease}
+    nav a:hover{background:var(--accent-3);color:var(--accent)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 320px;gap:32px;align-items:start;margin:28px 0 40px}
+    .heroImg img{width:100%;border-radius:16px;object-fit:cover;box-shadow:var(--shadow);margin-bottom:16px}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;border:1px solid rgba(0,0,0,0.03)}
+    .intro h1{margin:0;font-size:32px;line-height:1.2;color:var(--text)}
+    .intro p{color:var(--muted);margin:16px 0 24px;font-size:18px}
+    .cta{display:flex;gap:16px;flex-wrap:wrap}
+    .btn{background:var(--accent);color:white;padding:12px 20px;border-radius:8px;border:0;font-weight:600;cursor:pointer;transition:all 0.2s ease;font-size:16px}
+    .btn:hover{background:var(--accent-2);transform:translateY(-2px);box-shadow:0 4px 12px rgba(90,140,138,0.2)}
+    .btn.secondary{background:transparent;color:var(--accent);border:2px solid rgba(90,140,138,0.15)}
+    .btn.secondary:hover{background:var(--accent-3);transform:translateY(-2px)}
+
+    /* Right column profile */
+    .profile{display:flex;flex-direction:column;align-items:center;padding:24px;text-align:center}
+    .avatar{width:120px;height:120px;border-radius:16px;background:linear-gradient(180deg,#fff,#f1f6f6);display:grid;place-items:center;font-weight:700;font-size:28px;margin-bottom:16px;box-shadow:var(--shadow-light)}
+    .meta{margin-top:12px}
+    .meta small{display:block;color:var(--muted);margin-top:4px}
+
+    /* Sections */
+    section{margin:40px 0}
+    .section-title{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+    .section-title h2{margin:0;font-size:24px;color:var(--text)}
+    .section-title .divider{flex:1;height:1px;background:rgba(0,0,0,0.08)}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+
+    /* Counseling card */
+    .counseling .tag{display:inline-block;background:linear-gradient(90deg,rgba(90,140,138,0.12),transparent);padding:6px 14px;border-radius:999px;font-weight:600;color:var(--accent);margin-bottom:12px}
+    .counseling p{color:var(--muted);margin-top:12px}
+    .counseling ul{color:var(--muted);margin:12px 0 0;padding-left:20px}
+
+    /* Arts gallery */
+    .art-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .art-item{height:140px;border-radius:12px;overflow:hidden;display:grid;place-items:center;background:linear-gradient(180deg,rgba(127,169,167,0.1),rgba(90,140,138,0.05));cursor:pointer;transition:all 0.3s ease}
+    .art-item:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,0.08)}
+    .art-item img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* Instruments */
+    .instr-list{display:flex;flex-direction:column;gap:16px}
+    .instr{display:flex;align-items:center;gap:16px;padding:16px;border-radius:12px;background:linear-gradient(180deg,#fff,#f8fcfc);border:1px solid rgba(10,20,25,0.04);transition:all 0.2s ease}
+    .instr:hover{background:#f8fcfc;box-shadow:var(--shadow-light)}
+
+    /* Certifications & Achievements */
+    .cert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .cert-item{padding:20px;border-radius:12px;background:var(--accent-3);border-left:4px solid var(--accent)}
+    .cert-item h3{margin:0 0 8px;font-size:18px}
+    .cert-item p{margin:0;color:var(--muted);font-size:15px}
+
+    /* About / education */
+    .edu{display:flex;flex-direction:column;gap:12px}
+    .edu .row{display:flex;gap:16px;align-items:center}
+    .chip{padding:8px 14px;border-radius:999px;background:rgba(127,169,167,0.12);font-weight:600;color:var(--accent);font-size:14px}
+
+    footer{margin-top:60px;text-align:center;color:var(--muted);padding:30px 0;border-top:1px solid rgba(0,0,0,0.06)}
+
+    /* Responsive */
+    @media (max-width:968px){
+      .hero{grid-template-columns:1fr;}
+      .grid{grid-template-columns:1fr}
+      .art-grid{grid-template-columns:repeat(2,1fr)}
+      .cert-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:768px){
+      .art-grid{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start;gap:20px}
+      nav{width:100%;justify-content:center;flex-wrap:wrap}
+      .cta{flex-direction:column;align-items:flex-start}
+    }
+
+    /* small effects */
+    .float-blob{position:absolute;right:-100px;top:-40px;width:300px;height:300px;border-radius:50%;filter:blur(48px);opacity:0.1;background:linear-gradient(90deg,var(--accent),var(--accent-2));transform:rotate(20deg);z-index:-1}
+
+    /* modal */
+    .modal{position:fixed;inset:0;display:none;place-items:center;background:rgba(6,12,15,0.6);z-index:40;padding:20px}
+    .modal.open{display:grid}
+    .modal-card{width:92%;max-width:720px;background:var(--card);border-radius:16px;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,0.2);max-height:90vh;overflow-y:auto}
+    .close{background:transparent;border:0;font-weight:700;cursor:pointer;font-size:20px;padding:4px;color:var(--muted)}
+  </style>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Guidance Counselor — AJ Mingua</title>
@@ -106,6 +228,314 @@
   </style>
 </head>
 <body>
+  <div class="float-blob" aria-hidden></div>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">AJ</div>
+        <div>
+          <div style="font-weight:700;font-size:20px">Aeriel Jane Mingua, LGC</div>
+          <small style="color:var(--muted)">Licensed Guidance Counselor • Creative Arts Therapist</small>
+        </div>
+      </div>
+      <nav aria-label="Main navigation">
+        <a href="#counseling">Counseling Services</a>
+        <a href="#arts">Arts Therapy</a>
+        <a href="#instruments">Music Therapy</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="hero">
+        <div class="card intro">
+          <h1>Integrating Psychology with Creative Arts for Holistic Well-being</h1>
+          <p>As a Licensed Guidance Counselor with specialized training in creative arts therapy, I provide evidence-based counseling services that incorporate artistic expression and musical elements to promote emotional healing and personal growth.</p>
+          <div class="cta">
+            <button class="btn" id="contactBtn">Schedule Consultation</button>
+            <button class="btn secondary" id="resumeBtn">View Credentials</button>
+          </div>
+
+          <section id="counseling" class="counseling" aria-labelledby="counseling-title" style="margin-top:28px">
+            <div class="section-title">
+              <h2 id="counseling-title">Counseling Services</h2>
+              <div class="divider"></div>
+            </div>
+            <div class="grid">
+              <div class="card">
+                <div class="tag">Individual Counseling</div>
+                <p>Personalized one-on-one sessions focusing on emotional regulation, self-discovery, and developing coping strategies for life challenges.</p>
+                <ul>
+                  <li>Anxiety and stress management</li>
+                  <li>Self-esteem and identity development</li>
+                  <li>Academic and career guidance</li>
+                  <li>Relationship counseling</li>
+                </ul>
+              </div>
+
+              <div class="card">
+                <div class="tag">Group Workshops</div>
+                <p>Therapeutic group sessions that foster connection, shared learning, and collective healing through structured activities and discussions.</p>
+                <ul>
+                  <li>Mindfulness and resilience training</li>
+                  <li>Art-based emotional literacy</li>
+                  <li>Social skills development</li>
+                  <li>Parent support groups</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+        <aside class="card profile" aria-label="Profile">
+          <div class="heroImg"><img src="assets/Aj mingua.png" alt="Aeriel Jane Mingua, Licensed Guidance Counselor"></div>
+          <div class="avatar">AJM</div>
+          <div class="meta">
+            <div style="font-weight:700;font-size:18px">Aeriel Jane Mingua, LGC</div>
+            <small>Licensed Guidance Counselor</small>
+            <small>Registered Arts Therapist</small>
+          </div>
+
+          <div style="margin-top:20px;width:100%">
+            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+              <button class="btn" style="padding:10px 16px;font-size:14px" onclick="document.getElementById('contactBtn').click()">Contact Me</button>
+              <button class="btn secondary" id="portfolioDownload">Download CV</button>
+            </div>
+            <div style="margin-top:16px;color:var(--muted);font-size:14px;text-align:center">Based in Laguna • Available for remote sessions</div>
+          </div>
+        </aside>
+      </div>
+
+      <section id="arts">
+        <div class="section-title">
+          <h2>Arts Therapy Integration</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="card">
+          <p style="color:var(--muted);margin-top:0">I incorporate various art modalities into therapeutic practice to help clients express emotions that may be difficult to articulate verbally. These creative processes facilitate self-discovery, emotional release, and personal transformation.</p>
+          <div class="art-grid" id="artGrid">
+            <div class="art-item" data-title="Expressive Painting">
+              <svg width="100%" height="100%" viewBox="0 0 200 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="200" height="140" fill="#f7fbfb"/>
+                <circle cx="60" cy="40" r="30" fill="rgba(147,197,207,0.18)"/>
+                <rect x="100" y="30" width="80" height="80" rx="8" fill="rgba(106,166,163,0.12)"/>
+                <path d="M30 100 Q70 60 120 90 T190 80" fill="none" stroke="rgba(147,197,207,0.25)" stroke-width="8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="art-item" data-title="Mixed Media Exploration">
+              <svg width="100%" height="100%" viewBox="0 0 200 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="200" height="140" fill="#fff"/>
+                <rect x="30" y="30" width="50" height="50" rx="6" fill="rgba(106,166,163,0.12)"/>
+                <circle cx="130" cy="50" r="25" fill="rgba(147,197,207,0.18)"/>
+                <path d="M40 100 L160 100 L140 120 L60 120 Z" fill="rgba(90,140,138,0.1)"/>
+              </svg>
+            </div>
+            <div class="art-item" data-title="Therapeutic Collage">
+              <svg width="100%" height="100%" viewBox="0 0 200 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="200" height="140" fill="#fbffff"/>
+                <rect x="20" y="20" width="70" height="70" rx="6" fill="rgba(106,166,163,0.12)"/>
+                <rect x="110" y="30" width="60" height="40" rx="6" fill="rgba(147,197,207,0.12)"/>
+                <circle cx="150" cy="100" r="20" fill="rgba(90,140,138,0.1)"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="instruments">
+        <div class="section-title">
+          <h2>Music Therapy Approaches</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="card">
+          <p style="color:var(--muted);margin-top:0">I integrate music and rhythm into therapeutic sessions to help clients regulate emotions, reduce anxiety, and enhance self-expression. These techniques are particularly effective for clients who respond well to auditory and kinesthetic modalities.</p>
+          <div class="instr-list">
+            <div class="instr">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <path d="M3 3v18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div style="flex:1">
+                <div style="font-weight:700">Violin Therapy</div>
+                <small style="color:var(--muted)">Using melodic expression for emotional release and mood regulation</small>
+              </div>
+              <button class="btn secondary" onclick="alert('Audio sample would play here in a live implementation.')">Therapeutic Sample</button>
+            </div>
+
+            <div class="instr">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M4 20c4-6 8-6 16 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+              <div style="flex:1">
+                <div style="font-weight:700">Piano / Keyboard Therapy</div>
+                <small style="color:var(--muted)">Rhythmic exercises and harmonic exploration for anxiety reduction</small>
+              </div>
+              <button class="btn secondary" onclick="alert('Audio sample would play here in a live implementation.')">Therapeutic Sample</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="certifications">
+        <div class="section-title">
+          <h2>Certifications & Achievements</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="cert-grid">
+          <div class="cert-item">
+            <h3>Licensed Guidance Counselor</h3>
+            <p>Professional Regulation Commission (PRC) • License No. 1234567</p>
+          </div>
+          <div class="cert-item">
+            <h3>Certified Creative Arts Therapist</h3>
+            <p>International Association of Creative Arts Therapists • 2021</p>
+          </div>
+          <div class="cert-item">
+            <h3>Trauma-Informed Care Specialist</h3>
+            <p>National Institute for Trauma & Loss in Children • 2020</p>
+          </div>
+          <div class="cert-item">
+            <h3>Mindfulness-Based Stress Reduction</h3>
+            <p>Center for Mindfulness • University of Massachusetts • 2019</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="section-title">
+          <h2>Professional Background</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="card edu">
+          <div class="row">
+            <div style="flex:1">
+              <p style="margin:0">I am a Licensed Guidance Counselor with over 7 years of experience in educational and clinical settings. My practice integrates evidence-based psychological approaches with creative arts therapies to provide holistic, client-centered care. I specialize in working with adolescents and young adults, helping them navigate academic pressures, identity development, and emotional challenges.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+              <div class="chip">Client-Centered</div>
+              <div class="chip">Evidence-Based</div>
+              <div class="chip">Holistic Approach</div>
+            </div>
+          </div>
+
+          <div style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+            <div>
+              <div style="font-weight:700;margin-bottom:12px;color:var(--accent)">Education</div>
+              <div style="color:var(--muted);margin-bottom:8px">
+                <strong>Master of Arts in Counseling Psychology</strong><br>
+                University of the Philippines • 2020
+              </div>
+              <div style="color:var(--muted);margin-bottom:8px">
+                <strong>Bachelor of Science in Psychology</strong><br>
+                Polytechnic University of the Philippines • 2017
+              </div>
+            </div>
+
+            <div>
+              <div style="font-weight:700;margin-bottom:12px;color:var(--accent)">Professional Affiliations</div>
+              <div style="color:var(--muted);margin-bottom:8px">
+                <strong>Philippine Guidance and Counseling Association</strong><br>
+                Active Member since 2018
+              </div>
+              <div style="color:var(--muted);margin-bottom:8px">
+                <strong>International Association of Creative Arts Therapists</strong><br>
+                Certified Member since 2021
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+            <button class="btn" id="contactNow">Schedule Initial Consultation</button>
+            <button class="btn secondary" id="downloadBio">Download Professional Bio</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div style="color:var(--muted);margin-bottom:8px">Aeriel Jane Mingua, LGC • Guidance Counseling & Creative Arts Therapy</div>
+      <div style="color:var(--muted);font-size:14px">© 2023 All rights reserved • <a href="#" style="color:var(--accent)">Privacy Policy</a> • <a href="#" style="color:var(--accent)">Terms of Service</a></div>
+    </footer>
+  </div>
+
+  <!-- modal for art / credentials -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <strong id="modalTitle" style="font-size:20px">Preview</strong>
+        <button class="close" id="closeModal">✕</button>
+      </div>
+      <div id="modalContent" style="color:var(--muted)">Content</div>
+    </div>
+  </div>
+
+  <script>
+    // Smooth scroll for nav
+    document.querySelectorAll('nav a').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+      })
+    })
+
+    // Art tile click -> modal
+    document.querySelectorAll('.art-item').forEach(it=>{
+      it.addEventListener('click', ()=>{
+        const title = it.getAttribute('data-title') || 'Artwork';
+        openModal(title, '<p style="margin:0 0 16px">This is a preview of my therapeutic art work titled "'+title+'". In practice, I guide clients through similar creative processes to facilitate emotional expression and self-discovery.</p><div style="display:flex;gap:12px"><button class="btn" onclick="downloadPlaceholder()">Request Art Therapy Info</button><button class="btn secondary" onclick="closeModal()">Close</button></div>');
+      })
+    })
+
+    // Modal functions
+    function openModal(title, html){
+      const modal = document.getElementById('modal');
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalContent').innerHTML = html;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+    }
+    function closeModal(){
+      const modal = document.getElementById('modal');
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+    }
+    document.getElementById('closeModal').addEventListener('click', closeModal);
+    document.getElementById('modal').addEventListener('click', (e)=>{ if(e.target===e.currentTarget) closeModal(); });
+
+    // Buttons
+    document.getElementById('resumeBtn').addEventListener('click', ()=>{
+      openModal('Professional Credentials', '<div style="margin-bottom:16px"><strong>Education</strong><p style="margin:8px 0">MA Counseling Psychology — University of the Philippines, 2020</p><p style="margin:8px 0">BS Psychology — Polytechnic University of the Philippines, 2017</p></div><div><strong>Licenses & Certifications</strong><p style="margin:8px 0">Licensed Guidance Counselor (PRC) • 2018</p><p style="margin:8px 0">Certified Creative Arts Therapist • 2021</p><p style="margin:8px 0">Trauma-Informed Care Specialist • 2020</p></div>');
+    })
+
+    document.getElementById('contactBtn').addEventListener('click', ()=>{
+      openModal('Schedule a Consultation', '<p style="margin:0 0 16px">To schedule an initial consultation, please contact me using the information below:</p><p style="margin:0 0 8px"><strong>Email:</strong> ajmingua.professional@example.com</p><p style="margin:0 0 8px"><strong>Phone:</strong> +63 905 269 5246</p><p style="margin:0 0 16px"><strong>Office Hours:</strong> Monday-Friday, 9:00 AM - 5:00 PM</p><p style="color:var(--muted);font-size:14px">I typically respond to inquiries within 24-48 hours during business days.</p>');
+    })
+
+    document.getElementById('contactNow').addEventListener('click', ()=>{
+      openModal('Initial Consultation', '<p style="margin:0 0 16px">I offer a complimentary 15-minute phone consultation to discuss your needs and determine if my services are the right fit for you.</p><p style="margin:0 0 8px"><strong>To schedule:</strong> Email ajmingua.professional@example.com with "Consultation Request" in the subject line.</p><p style="margin:0 0 16px">Please include your availability and a brief description of what you\'re hoping to address in counseling.</p><div style="display:flex;gap:12px"><button class="btn" onclick="closeModal(); document.getElementById(\'contactBtn\').click();">Contact Now</button><button class="btn secondary" onclick="closeModal()">Close</button></div>');
+    })
+
+    document.getElementById('portfolioDownload').addEventListener('click', ()=>{
+      alert('In a live implementation, this would download your professional CV as a PDF file.');
+    })
+    document.getElementById('downloadBio').addEventListener('click', ()=>{
+      alert('In a live implementation, this would download your professional biography as a PDF file.');
+    })
+
+    function downloadPlaceholder(){
+      alert('This would open a form to request more information about art therapy services in a live implementation.');
+    }
+
+    // Accessibility: close modal with Escape
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape') closeModal();
+    });
+  </script>
   <div class="float-blob" aria-hidden></div>
   <div class="container">
     <header>
