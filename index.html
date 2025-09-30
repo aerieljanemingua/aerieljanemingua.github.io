@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Aeriel Jane Mingua, LGC | Guidance Counseling Services</title>
   <meta name="description" content="Professional portfolio of Aeriel Jane Mingua, Licensed Guidance Counselor specializing in counseling services and educational workshops." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,25 +100,124 @@
 
     footer{margin-top:60px; text-align:center; color:var(--light); padding:30px 0; border-top:1px solid var(--muted)}
 
-    /* Responsive */
-    @media (max-width:968px){
+    /* Responsive Design - Fixed for mobile */
+    @media (max-width: 1024px) {
+      .container {
+        padding: 0 20px;
+      }
+      
+      .hero {
+        gap: 24px;
+      }
+      
+      .intro h1 {
+        font-size: 28px;
+      }
+    }
+    
+    @media (max-width: 968px){
       .hero{grid-template-columns:1fr;}
       .grid{grid-template-columns:1fr}
       .art-grid{grid-template-columns:repeat(2,1fr)}
       .cert-grid{grid-template-columns:1fr}
     }
-    @media (max-width:768px){
+    
+    @media (max-width: 768px){
       .art-grid{grid-template-columns:1fr}
       header{flex-direction:column; align-items:flex-start; gap:20px}
-      nav{width:100%; justify-content:center; flex-wrap:wrap}
-      .cta{flex-direction:column; align-items:flex-start}
+      nav{width:100%; justify-content:flex-start; flex-wrap:wrap; gap: 4px;}
+      nav a {
+        padding: 8px 12px;
+        font-size: 14px;
+      }
+      .cta{flex-direction:column; align-items:flex-start; width: 100%;}
+      .btn {
+        width: 100%;
+        margin-bottom: 12px;
+      }
       .container{padding:0 16px}
+      .intro h1 {
+        font-size: 24px;
+      }
+      .intro p {
+        font-size: 16px;
+      }
+      .card {
+        padding: 20px;
+      }
+      .profile {
+        order: -1;
+        margin-bottom: 20px;
+      }
+      .hero {
+        margin: 20px 0 30px;
+      }
     }
-    @media (max-width:480px){
-      .intro h1{font-size:26px}
-      .card{padding:20px}
+    
+    @media (max-width: 480px){
+      .intro h1{font-size:22px}
+      .card{padding:16px}
       .btn{width:100%; margin-bottom:8px}
-      .edu .row{flex-direction:column; align-items:flex-start}
+      .edu .row{flex-direction:column; align-items:flex-start; gap: 12px;}
+      .section-title h2 {
+        font-size: 20px;
+      }
+      .logo {
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+      }
+      .brand div {
+        font-size: 18px;
+      }
+      .avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 24px;
+      }
+      .instr {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .instr .btn.secondary {
+        align-self: stretch;
+      }
+      .edu .row > div:first-child {
+        width: 100%;
+      }
+      .edu .row > div:last-child {
+        width: 100%;
+        align-items: flex-start;
+      }
+      .cert-item {
+        padding: 16px;
+      }
+      .cert-item h3 {
+        font-size: 16px;
+      }
+      .cert-item p {
+        font-size: 14px;
+      }
+      .container {
+        padding: 0 12px;
+      }
+    }
+    
+    @media (max-width: 360px) {
+      .intro h1 {
+        font-size: 20px;
+      }
+      .intro p {
+        font-size: 15px;
+      }
+      .card {
+        padding: 14px;
+      }
+      nav a {
+        padding: 6px 10px;
+        font-size: 13px;
+      }
     }
 
     /* small effects */
@@ -129,6 +228,22 @@
     .modal.open{display:grid}
     .modal-card{width:92%; max-width:720px; background:var(--card); border-radius:16px; padding:28px; box-shadow:0 20px 60px rgba(0,0,0,0.3); max-height:90vh; overflow-y:auto}
     .close{background:transparent; border:0; font-weight:700; cursor:pointer; font-size:20px; padding:4px; color:var(--light)}
+    
+    /* Prevent horizontal scrolling */
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+    }
+    
+    /* Improve touch targets for mobile */
+    @media (max-width: 768px) {
+      .btn, nav a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -143,8 +258,8 @@
         </div>
       </div>
       <nav aria-label="Main navigation">
-        <a href="#counseling">Counseling Services</a>
-        <a href="#hobbies">Personal Hobbies</a>
+        <a href="#counseling">Counseling</a>
+        <a href="#hobbies">Hobbies</a>
         <a href="#certifications">Certifications</a>
         <a href="#about">About</a>
       </nav>
