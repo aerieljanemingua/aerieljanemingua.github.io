@@ -87,11 +87,28 @@
     .instr{display:flex; align-items:center; gap:16px; padding:16px; border-radius:12px; background:rgba(255,255,255,0.05); border:1px solid var(--muted); transition:all 0.2s ease}
     .instr:hover{background:rgba(255,255,255,0.08); box-shadow:var(--shadow-light)}
 
-    /* Certifications & Achievements */
+    /* Certifications & Achievements - UPDATED */
     .cert-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px}
-    .cert-item{padding:20px; border-radius:12px; background:rgba(238,207,150,0.1); border-left:4px solid var(--accent)}
+    .cert-item{padding:20px; border-radius:12px; background:rgba(238,207,150,0.1); border-left:4px solid var(--accent); cursor:pointer; transition:all 0.3s ease}
+    .cert-item:hover{transform:translateY(-4px); box-shadow:0 8px 20px rgba(0,0,0,0.2)}
     .cert-item h3{margin:0 0 8px; font-size:18px; color:var(--accent)}
     .cert-item p{margin:0; color:var(--light); font-size:15px}
+    
+    /* Certificate Modal Styles */
+    .cert-modal {display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8);}
+    .cert-modal-content {background-color: var(--card); margin: 5% auto; padding: 20px; border-radius: var(--radius); width: 90%; max-width: 800px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5);}
+    .cert-modal-close {color: var(--accent); float: right; font-size: 28px; font-weight: bold; cursor: pointer; position: absolute; right: 20px; top: 15px; z-index: 10;}
+    .cert-modal-close:hover {color: #e6c086;}
+    .cert-modal-body {display: flex; flex-direction: column; gap: 20px; margin-top: 20px;}
+    .cert-modal-image {width: 100%; max-height: 500px; object-fit: contain; border-radius: 8px; background: rgba(0,0,0,0.1);}
+    .cert-modal-details {padding: 15px 0;}
+    .cert-modal-details h3 {margin: 0 0 10px; color: var(--accent); font-size: 24px;}
+    .cert-modal-details p {margin: 5px 0; color: var(--light);}
+    .cert-modal-details .cert-date {color: var(--muted); font-style: italic;}
+    .cert-modal-nav {display: flex; justify-content: space-between; margin-top: 20px;}
+    .cert-modal-nav button {background: var(--accent); color: var(--bg); border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.2s ease;}
+    .cert-modal-nav button:hover {background: #e6c086;}
+    .cert-modal-nav button:disabled {background: var(--muted); cursor: not-allowed;}
 
     /* About / education */
     .edu{display:flex; flex-direction:column; gap:12px}
@@ -152,6 +169,11 @@
       .hero {
         margin: 20px 0 30px;
       }
+      .cert-modal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: 15px;
+      }
     }
     
     @media (max-width: 480px){
@@ -201,6 +223,13 @@
       }
       .container {
         padding: 0 12px;
+      }
+      .cert-modal-body {
+        flex-direction: column;
+      }
+      .cert-modal-nav {
+        flex-direction: column;
+        gap: 10px;
       }
     }
     
@@ -397,23 +426,8 @@
           <h2>Certifications & Achievements</h2>
           <div class="divider"></div>
         </div>
-        <div class="cert-grid">
-          <div class="cert-item">
-            <h3>Licensed Guidance Counselor</h3>
-            <p>Professional Regulation Commission (PRC) • License No. 1234567</p>
-          </div>
-          <div class="cert-item">
-            <h3>Trauma-Informed Care Specialist</h3>
-            <p>National Institute for Trauma & Loss in Children • 2020</p>
-          </div>
-          <div class="cert-item">
-            <h3>Mindfulness-Based Stress Reduction</h3>
-            <p>Center for Mindfulness • University of Massachusetts • 2019</p>
-          </div>
-          <div class="cert-item">
-            <h3>Cognitive Behavioral Therapy Certification</h3>
-            <p>Beck Institute for Cognitive Behavior Therapy • 2021</p>
-          </div>
+        <div class="cert-grid" id="certificationsContainer">
+          <!-- Certifications will be populated by JavaScript -->
         </div>
       </section>
 
@@ -475,6 +489,26 @@
     </footer>
   </div>
 
+  <!-- Certificate Modal -->
+  <div id="certModal" class="cert-modal">
+    <div class="cert-modal-content">
+      <span class="cert-modal-close">&times;</span>
+      <div class="cert-modal-body">
+        <img id="certModalImage" class="cert-modal-image" src="" alt="Certificate">
+        <div class="cert-modal-details">
+          <h3 id="certModalTitle"></h3>
+          <p id="certModalIssuer"></p>
+          <p id="certModalDate" class="cert-date"></p>
+          <p id="certModalDescription"></p>
+        </div>
+        <div class="cert-modal-nav">
+          <button id="certModalPrev">Previous</button>
+          <button id="certModalNext">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- modal for art / credentials -->
   <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal-card">
@@ -487,6 +521,118 @@
   </div>
 
   <script>
+    // Certificate data - Updated with PNG/JPEG image paths
+    const certificates = [
+      {
+        id: 1,
+        title: "Registered Guidance Counselor",
+        issuer: "Professional Regulation Commission (PRC)",
+        date: "Issued: 2025, October 06",
+        description: "Official license to practice as a Guidance Counselor in the Philippines.",
+        image: "assets/CertificateSixSigma.jpeg" // Updated path
+      },
+      {
+        id: 2,
+        title: "Certified Lean Six Sigma Yellow Belt",
+        issuer: "Divergenz",
+        date: "Completed: 2021, July 25",
+        description: "Certificate of Achievement for Completing Lean Six Sigma Yellow Belt.",
+        image: "assets/CertSixSigma.png" // Updated path
+      },
+      {
+        id: 3,
+        title: "Bibliotheraphy, Literature and Mental Health",
+        issuer: "Bijal Shan - Founder, Bibliotheraphist and Book Curator",
+        date: "Completed: 2019",
+        description: "Certification in MBSR techniques for stress reduction and emotional regulation.",
+        image: "assets/CertificateUK.png" // Updated path
+      },
+      {
+        id: 4,
+        title: "Certification",
+        issuer: "Lorem Ipsum Institute",
+        date: "Completed: 2021",
+        description: "Lorem concerns.",
+        image: "assets/CertificateCBT.jpg" // Added a placeholder - replace with actual image
+      }
+    ];
+
+    // Populate certifications section
+    function populateCertifications() {
+      const container = document.getElementById('certificationsContainer');
+      
+      certificates.forEach(cert => {
+        const certElement = document.createElement('div');
+        certElement.className = 'cert-item';
+        certElement.innerHTML = `
+          <h3>${cert.title}</h3>
+          <p>${cert.issuer} • ${cert.date}</p>
+        `;
+        certElement.addEventListener('click', () => openCertificateModal(cert.id));
+        container.appendChild(certElement);
+      });
+    }
+
+    // Certificate modal functionality
+    let currentCertificateIndex = 0;
+
+    function openCertificateModal(certId) {
+      const index = certificates.findIndex(cert => cert.id === certId);
+      if (index === -1) return;
+      
+      currentCertificateIndex = index;
+      updateCertificateModal();
+      
+      const modal = document.getElementById('certModal');
+      modal.style.display = 'block';
+      
+      // Update navigation buttons
+      document.getElementById('certModalPrev').disabled = index === 0;
+      document.getElementById('certModalNext').disabled = index === certificates.length - 1;
+    }
+
+    function updateCertificateModal() {
+      const cert = certificates[currentCertificateIndex];
+      
+      document.getElementById('certModalImage').src = cert.image;
+      document.getElementById('certModalImage').alt = cert.title;
+      document.getElementById('certModalTitle').textContent = cert.title;
+      document.getElementById('certModalIssuer').textContent = cert.issuer;
+      document.getElementById('certModalDate').textContent = cert.date;
+      document.getElementById('certModalDescription').textContent = cert.description;
+      
+      // Update navigation buttons
+      document.getElementById('certModalPrev').disabled = currentCertificateIndex === 0;
+      document.getElementById('certModalNext').disabled = currentCertificateIndex === certificates.length - 1;
+    }
+
+    function closeCertificateModal() {
+      document.getElementById('certModal').style.display = 'none';
+    }
+
+    function navigateCertificate(direction) {
+      currentCertificateIndex += direction;
+      updateCertificateModal();
+    }
+
+    // Initialize certifications when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      populateCertifications();
+      
+      // Certificate modal event listeners
+      document.querySelector('.cert-modal-close').addEventListener('click', closeCertificateModal);
+      document.getElementById('certModalPrev').addEventListener('click', () => navigateCertificate(-1));
+      document.getElementById('certModalNext').addEventListener('click', () => navigateCertificate(1));
+      
+      // Close modal when clicking outside
+      window.addEventListener('click', function(event) {
+        const modal = document.getElementById('certModal');
+        if (event.target === modal) {
+          closeCertificateModal();
+        }
+      });
+    });
+
     // Smooth scroll for nav
     document.querySelectorAll('nav a').forEach(a=>{
       a.addEventListener('click', e=>{
@@ -543,7 +689,10 @@
 
     // Accessibility: close modal with Escape
     document.addEventListener('keydown', (e)=>{
-      if(e.key === 'Escape') closeModal();
+      if(e.key === 'Escape') {
+        closeModal();
+        closeCertificateModal();
+      }
     });
   </script>
 </body>
