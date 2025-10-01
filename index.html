@@ -15,20 +15,20 @@
     />
     <style>
       :root {
-        --bg: #ffffff;
-        --card: #ffffff;
-        --accent: #eecf96; /* elegant gold */
-        --accent-2: #18304c; /* deep navy */
-        --accent-3: #274368; /* medium blue */
-        --muted: #5a5a5a; /* medium gray */
-        --light: #d2d2d2; /* light gray */
-        --text: #18304c;
+        --bg: #0f172a; /* dark blue-gray */
+        --card: #1e293b; /* slightly lighter blue-gray */
+        --accent: #fbbf24; /* amber for accent */
+        --accent-2: #60a5fa; /* light blue */
+        --accent-3: #34d399; /* teal */
+        --muted: #94a3b8; /* muted blue-gray */
+        --light: #334155; /* border color */
+        --text: #f1f5f9; /* light text */
         --radius: 12px;
-        --shadow: 0 6px 20px rgba(24, 48, 76, 0.08);
-        --shadow-light: 0 4px 12px rgba(24, 48, 76, 0.04);
+        --shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.2);
         font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
           "Helvetica Neue", Arial;
-        color-scheme: light;
+        color-scheme: dark;
       }
 
       * {
@@ -45,12 +45,12 @@
       body {
         background: radial-gradient(
             1200px 600px at 10% 10%,
-            rgba(238, 207, 150, 0.05),
+            rgba(251, 191, 36, 0.08),
             transparent 8%
           ),
           radial-gradient(
             800px 500px at 90% 90%,
-            rgba(24, 48, 76, 0.03),
+            rgba(96, 165, 250, 0.05),
             transparent 10%
           ),
           var(--bg);
@@ -85,7 +85,7 @@
         background: linear-gradient(135deg, var(--accent-2), var(--accent-3));
         display: grid;
         place-items: center;
-        color: white;
+        color: var(--bg);
         font-weight: 700;
         font-size: 20px;
         box-shadow: var(--shadow);
@@ -104,8 +104,8 @@
         transition: all 0.2s ease;
       }
       nav a:hover {
-        background: rgba(238, 207, 150, 0.1);
-        color: var(--accent-2);
+        background: rgba(251, 191, 36, 0.15);
+        color: var(--accent);
       }
 
       /* Hero */
@@ -128,7 +128,7 @@
         border-radius: var(--radius);
         box-shadow: var(--shadow);
         padding: 28px;
-        border: 1px solid rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.05);
       }
       .intro h1 {
         margin: 0;
@@ -148,7 +148,7 @@
       }
       .btn {
         background: var(--accent-2);
-        color: white;
+        color: var(--bg);
         padding: 12px 20px;
         border-radius: 8px;
         border: 0;
@@ -160,25 +160,25 @@
       .btn:hover {
         background: var(--accent-3);
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(24, 48, 76, 0.2);
+        box-shadow: 0 4px 12px rgba(52, 211, 153, 0.3);
       }
       .btn.secondary {
         background: transparent;
         color: var(--accent-2);
-        border: 2px solid rgba(24, 48, 76, 0.15);
+        border: 2px solid rgba(96, 165, 250, 0.3);
       }
       .btn.secondary:hover {
-        background: rgba(24, 48, 76, 0.05);
+        background: rgba(96, 165, 250, 0.1);
         transform: translateY(-2px);
       }
       .btn.accent {
         background: var(--accent);
-        color: var(--accent-2);
+        color: var(--bg);
       }
       .btn.accent:hover {
-        background: #e6c086;
+        background: #f59e0b;
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(238, 207, 150, 0.3);
+        box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
       }
 
       /* Right column profile */
@@ -193,14 +193,14 @@
         width: 120px;
         height: 120px;
         border-radius: 16px;
-        background: linear-gradient(180deg, #fff, #f8f8f8);
+        background: linear-gradient(180deg, var(--card), #273549);
         display: grid;
         place-items: center;
         font-weight: 700;
         font-size: 28px;
         margin-bottom: 16px;
         box-shadow: var(--shadow-light);
-        color: var(--accent-2);
+        color: var(--accent);
       }
       .meta {
         margin-top: 12px;
@@ -242,13 +242,13 @@
         display: inline-block;
         background: linear-gradient(
           90deg,
-          rgba(238, 207, 150, 0.2),
+          rgba(251, 191, 36, 0.2),
           transparent
         );
         padding: 6px 14px;
         border-radius: 999px;
         font-weight: 600;
-        color: var(--accent-2);
+        color: var(--accent);
         margin-bottom: 12px;
       }
       .counseling p {
@@ -294,7 +294,7 @@
         bottom: 0;
         left: 0;
         right: 0;
-        background: rgba(24, 48, 76, 0.8);
+        background: rgba(15, 23, 42, 0.85);
         color: white;
         padding: 15px 20px;
         transform: translateY(100%);
@@ -315,13 +315,14 @@
         margin: 0;
         font-size: 14px;
         line-height: 1.4;
+        color: var(--muted);
       }
 
       .art-carousel-nav {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        background: rgba(255, 255, 255, 0.8);
+        background: rgba(30, 41, 59, 0.8);
         border: none;
         width: 40px;
         height: 40px;
@@ -331,14 +332,14 @@
         justify-content: center;
         cursor: pointer;
         font-size: 18px;
-        color: var(--accent-2);
+        color: var(--accent);
         transition: all 0.3s ease;
         z-index: 10;
       }
 
       .art-carousel-nav:hover {
         background: var(--accent);
-        color: white;
+        color: var(--bg);
       }
 
       .art-carousel-prev {
@@ -383,12 +384,12 @@
         gap: 16px;
         padding: 16px;
         border-radius: 12px;
-        background: linear-gradient(180deg, #fff, #f8f8f8);
+        background: linear-gradient(180deg, var(--card), #273549);
         border: 1px solid var(--light);
         transition: all 0.2s ease;
       }
       .instr:hover {
-        background: #f8f8f8;
+        background: #273549;
         box-shadow: var(--shadow-light);
       }
 
@@ -401,7 +402,7 @@
       .cert-item {
         padding: 20px;
         border-radius: 12px;
-        background: rgba(238, 207, 150, 0.1);
+        background: rgba(251, 191, 36, 0.1);
         border-left: 4px solid var(--accent);
       }
       .cert-item h3 {
@@ -428,9 +429,9 @@
       .chip {
         padding: 8px 14px;
         border-radius: 999px;
-        background: rgba(238, 207, 150, 0.15);
+        background: rgba(251, 191, 36, 0.15);
         font-weight: 600;
-        color: var(--accent-2);
+        color: var(--accent);
         font-size: 14px;
       }
 
@@ -513,28 +514,90 @@
         }
       }
 
-      /* small effects */
-      .float-blob {
-        position: absolute;
-        right: -100px;
-        top: -40px;
-        width: 300px;
-        height: 300px;
-        border-radius: 50%;
-        filter: blur(48px);
-        opacity: 0.1;
-        background: linear-gradient(90deg, var(--accent-2), var(--accent-3));
-        transform: rotate(20deg);
+      /* Floating Background Elements */
+      .floating-bg {
+        position: fixed;
+        inset: 0;
         z-index: -1;
+        overflow: hidden;
       }
 
-      /* modal */
+      .blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(40px);
+        opacity: 0.15;
+        animation: floatUp linear infinite;
+        bottom: -200px;
+      }
+
+      /* Sizes, colors, timing */
+      .b1 {
+        width: 260px;
+        height: 260px;
+        background: #60a5fa;
+        left: 8%;
+        animation-duration: 32s;
+        animation-delay: 0s;
+      }
+      .b2 {
+        width: 320px;
+        height: 320px;
+        background: #34d399;
+        left: 30%;
+        animation-duration: 45s;
+        animation-delay: 3s;
+      }
+      .b3 {
+        width: 220px;
+        height: 220px;
+        background: #f87171;
+        left: 55%;
+        animation-duration: 28s;
+        animation-delay: 1.5s;
+      }
+      .b4 {
+        width: 380px;
+        height: 380px;
+        background: #fbbf24;
+        left: 75%;
+        animation-duration: 50s;
+        animation-delay: 5s;
+      }
+      .b5 {
+        width: 240px;
+        height: 240px;
+        background: #a78bfa;
+        left: 45%;
+        animation-duration: 38s;
+        animation-delay: 2s;
+      }
+
+      /* Keyframes */
+      @keyframes floatUp {
+        0% {
+          bottom: -200px;
+          transform: translateX(0) scale(1);
+          opacity: 0.1;
+        }
+        50% {
+          transform: translateX(50px) scale(1.1);
+          opacity: 0.2;
+        }
+        100% {
+          bottom: 110%;
+          transform: translateX(-30px) scale(1);
+          opacity: 0.1;
+        }
+      }
+
+      /* Modal */
       .modal {
         position: fixed;
         inset: 0;
         display: none;
         place-items: center;
-        background: rgba(6, 12, 15, 0.6);
+        background: rgba(0, 0, 0, 0.7);
         z-index: 40;
         padding: 20px;
       }
@@ -547,7 +610,7 @@
         background: var(--card);
         border-radius: 16px;
         padding: 28px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         max-height: 90vh;
         overflow-y: auto;
       }
@@ -560,17 +623,41 @@
         padding: 4px;
         color: var(--muted);
       }
+
+      /* Dark mode toggle button */
+      .theme-toggle {
+        background: var(--card);
+        border: 1px solid var(--light);
+        color: var(--muted);
+        padding: 8px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.2s ease;
+      }
+      .theme-toggle:hover {
+        background: var(--light);
+        color: var(--text);
+      }
     </style>
   </head>
   <body>
-    <div class="float-blob" aria-hidden></div>
+    <!-- Floating background elements -->
+    <div class="floating-bg">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="blob b3"></div>
+      <div class="blob b4"></div>
+      <div class="blob b5"></div>
+    </div>
+
     <div class="container">
       <header>
         <div class="brand">
           <div class="logo">AJ</div>
           <div>
             <div
-              style="font-weight: 700; font-size: 20px; color: var(--accent-2)"
+              style="font-weight: 700; font-size: 20px; color: var(--text)"
             >
               Aeriel Jane Mingua, RGC
             </div>
@@ -585,6 +672,7 @@
           <a href="#instruments">Music</a>
           <a href="#certifications">Certifications</a>
           <a href="#about">About</a>
+          <button class="theme-toggle" id="themeToggle">Light Mode</button>
         </nav>
       </header>
 
@@ -660,7 +748,7 @@
                 style="
                   font-weight: 700;
                   font-size: 18px;
-                  color: var(--accent-2);
+                  color: var(--text);
                 "
               >
                 Aeriel Jane Mingua, RGC
@@ -711,9 +799,10 @@
           </div>
           <div class="card">
             <p style="color: var(--muted); margin-top: 0">
-              Lorem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem
-              Lorem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem
-              Lorem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem
+              Lorem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem
+              LOrem Lorem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem
+              LOrem LOrem Lorem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem
+              LOrem LOrem LOrem
             </p>
 
             <!-- Artwork Carousel -->
@@ -727,52 +816,47 @@
                   <div class="art-carousel-caption">
                     <h3>Alfea at her 18th Birthday</h3>
                     <p>
-                      Lorem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem
-              Lorem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem
+                      Lorem LOrem LOrem LOrem LOrem LOrem LOrem LOrem LOrem
+                      LOrem LOrem LOrem Lorem LOrem LOrem LOrem LOrem LOrem
+                      LOrem LOrem LOrem LOrem LOrem LOrem
                     </p>
                   </div>
                 </div>
                 <div class="art-carousel-slide">
-                  <img
-                    src="assets/Kyle.jpeg"
-                    alt="Kyle Echarri"
-                  />
+                  <img src="assets/Kyle.jpeg" alt="Kyle Echarri" />
                   <div class="art-carousel-caption">
                     <h3>Celebrity Portrait</h3>
                     <p>
-                      Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem
+                      Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem
+                      Lorem Lorem
                     </p>
                   </div>
                 </div>
                 <div class="art-carousel-slide">
-                  <img
-                    src="assets/Lee min ho.jpeg"
-                    alt="Lee Min Ho"
-                  />
+                  <img src="assets/Lee min ho.jpeg" alt="Lee Min Ho" />
                   <div class="art-carousel-caption">
                     <h3>Lee Min Ho</h3>
                     <p>
-                      Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem
+                      Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem
+                      Lorem Lorem
                     </p>
                   </div>
                 </div>
                 <div class="art-carousel-slide">
-                  <img
-                    src="assets/Man.jpeg"
-                    alt="Man"
-                  />
+                  <img src="assets/Man.jpeg" alt="Man" />
                   <div class="art-carousel-caption">
                     <h3>Man's Portrait</h3>
                     <p>
-                      Lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita maxime omnis commodi molestias minima nisi natus, eligendi harum modi assumenda, nesciunt numquam architecto totam id voluptatibus dolorum corrupti cum sequi!
+                      Lorem Lorem ipsum dolor sit amet, consectetur adipisicing
+                      elit. Expedita maxime omnis commodi molestias minima nisi
+                      natus, eligendi harum modi assumenda, nesciunt numquam
+                      architecto totam id voluptatibus dolorum corrupti cum
+                      sequi!
                     </p>
                   </div>
                 </div>
                 <div class="art-carousel-slide">
-                  <img
-                    src="assets/Woman3.jpeg"
-                    alt="Woman smilling"
-                  />
+                  <img src="assets/Woman3.jpeg" alt="Woman smilling" />
                   <div class="art-carousel-caption">
                     <h3>Finding Order in Chaos</h3>
                     <p>
@@ -782,10 +866,7 @@
                   </div>
                 </div>
                 <div class="art-carousel-slide">
-                  <img
-                    src="assets/Woman2.jpeg"
-                    alt="Woman smilling"
-                  />
+                  <img src="assets/Woman2.jpeg" alt="Woman smilling" />
                   <div class="art-carousel-caption">
                     <h3>Finding Order in Chaos</h3>
                     <p>
@@ -795,10 +876,7 @@
                   </div>
                 </div>
                 <div class="art-carousel-slide">
-                  <img
-                    src="assets/Woman.jpeg"
-                    alt="Woman smilling"
-                  />
+                  <img src="assets/Woman.jpeg" alt="Woman smilling" />
                   <div class="art-carousel-caption">
                     <h3>Finding Order in Chaos</h3>
                     <p>
@@ -858,7 +936,7 @@
                 >
                   <path
                     d="M3 3v18h18"
-                    stroke="var(--accent-2)"
+                    stroke="var(--accent)"
                     stroke-width="1.6"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -891,12 +969,12 @@
                     cx="12"
                     cy="8"
                     r="3"
-                    stroke="var(--accent-2)"
+                    stroke="var(--accent)"
                     stroke-width="1.6"
                   />
                   <path
                     d="M4 20c4-6 8-6 16 0"
-                    stroke="var(--accent-2)"
+                    stroke="var(--accent)"
                     stroke-width="1.6"
                     stroke-linecap="round"
                   />
@@ -993,7 +1071,7 @@
                   style="
                     font-weight: 700;
                     margin-bottom: 12px;
-                    color: var(--accent-2);
+                    color: var(--text);
                   "
                 >
                   Education
@@ -1013,7 +1091,7 @@
                   style="
                     font-weight: 700;
                     margin-bottom: 12px;
-                    color: var(--accent-2);
+                    color: var(--text);
                   "
                 >
                   Professional Affiliations
@@ -1064,7 +1142,7 @@
       </footer>
     </div>
 
-    <!-- modal for art / credentials -->
+    <!-- Modal for art / credentials -->
     <div
       id="modal"
       class="modal"
@@ -1226,6 +1304,37 @@
         alert(
           "In a live implementation, this would download your professional biography as a PDF file."
         );
+      });
+
+      // Theme toggle functionality
+      const themeToggle = document.getElementById("themeToggle");
+      themeToggle.addEventListener("click", () => {
+        const isDark = document.documentElement.style.getPropertyValue('--bg') === '#0f172a' || 
+                      !document.documentElement.style.getPropertyValue('--bg');
+        
+        if (isDark) {
+          // Switch to light mode
+          document.documentElement.style.setProperty('--bg', '#ffffff');
+          document.documentElement.style.setProperty('--card', '#ffffff');
+          document.documentElement.style.setProperty('--accent', '#eecf96');
+          document.documentElement.style.setProperty('--accent-2', '#18304c');
+          document.documentElement.style.setProperty('--accent-3', '#274368');
+          document.documentElement.style.setProperty('--muted', '#5a5a5a');
+          document.documentElement.style.setProperty('--light', '#d2d2d2');
+          document.documentElement.style.setProperty('--text', '#18304c');
+          themeToggle.textContent = 'Dark Mode';
+        } else {
+          // Switch to dark mode
+          document.documentElement.style.setProperty('--bg', '#0f172a');
+          document.documentElement.style.setProperty('--card', '#1e293b');
+          document.documentElement.style.setProperty('--accent', '#fbbf24');
+          document.documentElement.style.setProperty('--accent-2', '#60a5fa');
+          document.documentElement.style.setProperty('--accent-3', '#34d399');
+          document.documentElement.style.setProperty('--muted', '#94a3b8');
+          document.documentElement.style.setProperty('--light', '#334155');
+          document.documentElement.style.setProperty('--text', '#f1f5f9');
+          themeToggle.textContent = 'Light Mode';
+        }
       });
 
       // Accessibility: close modal with Escape
