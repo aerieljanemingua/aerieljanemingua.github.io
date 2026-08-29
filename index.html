@@ -10,7 +10,7 @@
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -261,136 +261,287 @@
         padding-left: 20px;
       }
 
-      /* Artwork Carousel */
-      .art-carousel-container {
-        position: relative;
-        margin: 30px 0;
-        overflow: hidden;
+      /* ---------- GALLERY STYLES (adapted from Alfea) ---------- */
+      .gallery-wrapper {
+        margin-bottom: 2rem;
+      }
+
+      .featured-hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: stretch;
+        background: var(--card);
         border-radius: var(--radius);
-        box-shadow: var(--shadow);
+        border: 1px solid rgba(251, 191, 36, 0.25);
+        overflow: hidden;
+        box-shadow: 0 0 40px -10px rgba(251, 191, 36, 0.15);
+        transition: all 0.3s ease;
+        margin-bottom: 1.5rem;
       }
 
-      .art-carousel {
-        display: flex;
-        transition: transform 0.5s ease;
-        height: 400px;
+      .featured-hero:hover {
+        box-shadow: 0 0 60px -10px rgba(251, 191, 36, 0.25);
+        border-color: rgba(251, 191, 36, 0.4);
       }
 
-      .art-carousel-slide {
-        min-width: 100%;
+      .featured-hero .hero-img {
         height: 100%;
-        position: relative;
-      }
-
-      .art-carousel-slide img {
-        width: 100%;
-        height: 100%;
+        min-height: 320px;
         object-fit: cover;
-        display: block;
-      }
-
-      .art-carousel-caption {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(15, 23, 42, 0.85);
-        color: white;
-        padding: 15px 20px;
-        transform: translateY(100%);
-        transition: transform 0.3s ease;
-      }
-
-      .art-carousel-slide:hover .art-carousel-caption {
-        transform: translateY(0);
-      }
-
-      .art-carousel-caption h3 {
-        margin: 0 0 5px;
-        font-size: 18px;
-        color: var(--accent);
-      }
-
-      .art-carousel-caption p {
-        margin: 0;
-        font-size: 14px;
-        line-height: 1.4;
-        color: var(--muted);
-      }
-
-      .art-carousel-nav {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(30, 41, 59, 0.8);
-        border: none;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        font-size: 18px;
-        color: var(--accent);
-        transition: all 0.3s ease;
-        z-index: 10;
-      }
-
-      .art-carousel-nav:hover {
-        background: var(--accent);
-        color: var(--bg);
-      }
-
-      .art-carousel-prev {
-        left: 15px;
-      }
-
-      .art-carousel-next {
-        right: 15px;
-      }
-
-      .art-carousel-dots {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-        gap: 10px;
-      }
-
-      .art-carousel-dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: var(--light);
-        border: none;
+        width: 100%;
         cursor: pointer;
         transition: all 0.3s ease;
       }
 
-      .art-carousel-dot.active {
-        background: var(--accent);
-        transform: scale(1.2);
+      .featured-hero .hero-img:hover {
+        filter: brightness(1.05) saturate(1.05);
       }
 
-      /* Instruments */
-      .instr-list {
+      .featured-hero .hero-body {
+        padding: 2rem 2rem 2rem 0.5rem;
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        justify-content: center;
+        gap: 0.6rem;
       }
-      .instr {
+
+      .featured-hero .hero-body .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(251, 191, 36, 0.15);
+        color: var(--accent);
+        padding: 0.25rem 1rem;
+        border-radius: 40px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border: 1px solid rgba(251, 191, 36, 0.25);
+        width: fit-content;
+      }
+
+      .featured-hero .hero-body h2 {
+        font-size: 2rem;
+        font-weight: 800;
+        line-height: 1.2;
+        color: var(--text);
+        margin: 0;
+      }
+
+      .featured-hero .hero-body h2 .gold {
+        color: var(--accent);
+      }
+
+      .featured-hero .hero-body p {
+        color: var(--muted);
+        font-size: 0.95rem;
+        max-width: 90%;
+        margin: 0;
+      }
+
+      .featured-hero .hero-body .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-top: 0.4rem;
+      }
+
+      .featured-hero .hero-body .meta span {
+        font-size: 0.8rem;
+        color: var(--muted);
         display: flex;
         align-items: center;
-        gap: 16px;
-        padding: 16px;
-        border-radius: 12px;
-        background: linear-gradient(180deg, var(--card), #273549);
-        border: 1px solid var(--light);
-        transition: all 0.2s ease;
+        gap: 0.4rem;
       }
-      .instr:hover {
-        background: #273549;
-        box-shadow: var(--shadow-light);
+
+      .featured-hero .hero-body .meta span i {
+        color: var(--accent);
+        font-size: 1rem;
+      }
+
+      /* Sub-featured row */
+      .featured-sub {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .sub-card {
+        background: var(--card);
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .sub-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(251, 191, 36, 0.3);
+        box-shadow: 0 0 30px -8px rgba(251, 191, 36, 0.1);
+      }
+
+      .sub-card img {
+        height: 180px;
+        object-fit: cover;
+        width: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .sub-card:hover img {
+        filter: brightness(1.05);
+      }
+
+      .sub-card .sub-body {
+        padding: 0.8rem 1rem 1rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+
+      .sub-card .sub-body h4 {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text);
+        margin: 0;
+      }
+
+      .sub-card .sub-body p {
+        font-size: 0.75rem;
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .sub-card .sub-body .mini-badge {
+        font-size: 0.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--accent);
+        background: rgba(251, 191, 36, 0.1);
+        padding: 0.1rem 0.6rem;
+        border-radius: 20px;
+        display: inline-block;
+        width: fit-content;
+        border: 1px solid rgba(251, 191, 36, 0.1);
+        margin-top: 0.2rem;
+      }
+
+      /* Main grid */
+      .art-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .art-card {
+        background: var(--card);
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 20px -5px rgba(96, 165, 250, 0.05);
+        cursor: pointer;
+      }
+
+      .art-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 0 30px -5px rgba(251, 191, 36, 0.15);
+        border-color: rgba(251, 191, 36, 0.2);
+      }
+
+      .art-card img {
+        height: 220px;
+        object-fit: cover;
+        width: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .art-card:hover img {
+        filter: brightness(1.05);
+      }
+
+      .art-card .box {
+        flex: 1;
+        padding: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      .art-card .box h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text);
+        line-height: 1.3;
+        margin: 0;
+      }
+
+      .art-card .box p {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin: 0;
+      }
+
+      /* ----- Image Modal ----- */
+      .img-modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.85);
+        justify-content: center;
+        align-items: center;
+        padding: 1.5rem;
+        backdrop-filter: blur(6px);
+      }
+
+      .img-modal-content {
+        max-width: 90vw;
+        max-height: 85vh;
+        border-radius: var(--radius);
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+        animation: zoomIn 0.3s ease;
+        object-fit: contain;
+      }
+
+      @keyframes zoomIn {
+        from {
+          transform: scale(0.7);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .img-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 2rem;
+        color: #fff;
+        font-size: 2.8rem;
+        font-weight: 300;
+        cursor: pointer;
+        transition: 0.25s;
+        line-height: 1;
+        z-index: 1001;
+      }
+
+      .img-close:hover {
+        color: var(--accent);
+        transform: rotate(90deg);
       }
 
       /* Certifications & Achievements */
@@ -454,8 +605,26 @@
         .cert-grid {
           grid-template-columns: 1fr;
         }
-        .art-carousel {
-          height: 350px;
+        .featured-hero {
+          grid-template-columns: 1fr;
+        }
+        .featured-hero .hero-img {
+          min-height: 280px;
+        }
+        .featured-hero .hero-body {
+          padding: 1.5rem;
+        }
+        .featured-hero .hero-body h2 {
+          font-size: 1.6rem;
+        }
+        .featured-hero .hero-body p {
+          max-width: 100%;
+        }
+        .featured-sub {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .art-grid {
+          grid-template-columns: repeat(2, 1fr);
         }
       }
       @media (max-width: 768px) {
@@ -476,13 +645,18 @@
         .container {
           padding: 0 16px;
         }
-        .art-carousel {
-          height: 300px;
+        .featured-sub {
+          grid-template-columns: 1fr 1fr;
+          gap: 0.8rem;
         }
-        .art-carousel-nav {
-          width: 36px;
-          height: 36px;
-          font-size: 16px;
+        .featured-sub .sub-card img {
+          height: 130px;
+        }
+        .featured-hero .hero-body h2 {
+          font-size: 1.3rem;
+        }
+        .featured-hero .hero-body .meta {
+          gap: 0.8rem;
         }
       }
       @media (max-width: 480px) {
@@ -500,17 +674,22 @@
           flex-direction: column;
           align-items: flex-start;
         }
-        .art-carousel {
-          height: 250px;
+        .featured-hero .hero-img {
+          min-height: 220px;
         }
-        .art-carousel-caption {
-          padding: 10px 15px;
+        .featured-sub {
+          grid-template-columns: 1fr;
         }
-        .art-carousel-caption h3 {
-          font-size: 16px;
+        .art-grid {
+          grid-template-columns: 1fr;
         }
-        .art-carousel-caption p {
-          font-size: 13px;
+        .art-card img {
+          height: 180px;
+        }
+        .img-close {
+          top: 1rem;
+          right: 1.2rem;
+          font-size: 2.2rem;
         }
       }
 
@@ -591,7 +770,7 @@
         }
       }
 
-      /* Modal */
+      /* Modal for credentials (unchanged) */
       .modal {
         position: fixed;
         inset: 0;
@@ -624,7 +803,7 @@
         color: var(--muted);
       }
 
-      /* Dark mode toggle button */
+      /* Theme toggle button */
       .theme-toggle {
         background: var(--card);
         border: 1px solid var(--light);
@@ -667,7 +846,6 @@
         <nav aria-label="Main navigation">
           <a href="#counseling">Counseling Services</a>
           <a href="#arts">Artwork</a>
-          <a href="#instruments">Music</a>
           <a href="#certifications">Certifications</a>
           <a href="#about">About</a>
           <button class="theme-toggle" id="themeToggle">Light Mode</button>
@@ -786,216 +964,130 @@
           </aside>
         </div>
 
+        <!-- ===== NEW ART GALLERY SECTION ===== -->
         <section id="arts">
           <div class="section-title">
-            <h2>Arts as Hobby</h2>
+            <h2>Art as Hobby & Therapeutic Expression</h2>
             <div class="divider"></div>
           </div>
+
           <div class="card">
             <p style="color: var(--muted); margin-top: 0">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-              quis facere harum aliquid. Veritatis, debitis cumque. Doloremque
-              temporibus suscipit quos laudantium, vitae repellendus quis aut
-              nemo, tenetur sit voluptatum autem.
-            </p>
-
-            <!-- Artwork Carousel -->
-            <div class="art-carousel-container">
-              <div class="art-carousel" id="artCarousel">
-                <div class="art-carousel-slide">
-                  <img
-                    src="assets/Alfea sister.jpeg"
-                    alt="Birthday Gift for my Sister - Alfea"
-                  />
-                  <div class="art-carousel-caption">
-                    <h3>Alfea at her 18th Birthday</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Laudantium adipisci repellat numquam temporibus suscipit
-                      rerum? Corporis quaerat odio dolore minus dignissimos nemo
-                      natus, qui laboriosam quis reprehenderit quisquam porro
-                      voluptate.
-                    </p>
-                  </div>
-                </div>
-                <div class="art-carousel-slide">
-                  <img src="assets/Kyle.jpeg" alt="Kyle Echarri" />
-                  <div class="art-carousel-caption">
-                    <h3>Celebrity Portrait</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Ipsum obcaecati nulla dignissimos, eos velit eius,
-                      perferendis ea, odio consectetur esse nemo. Sit in velit
-                      soluta odio eum beatae culpa omnis?
-                    </p>
-                  </div>
-                </div>
-                <div class="art-carousel-slide">
-                  <img src="assets/Lee min ho.jpeg" alt="Lee Min Ho" />
-                  <div class="art-carousel-caption">
-                    <h3>Lee Min Ho</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Voluptate blanditiis, assumenda aut dignissimos quaerat
-                      pariatur iste repellendus ducimus. Laboriosam iusto
-                      accusantium voluptatem! Ipsam repellendus illum cum sit
-                      incidunt perferendis dolorem!
-                    </p>
-                  </div>
-                </div>
-                <div class="art-carousel-slide">
-                  <img src="assets/Man.jpeg" alt="Man" />
-                  <div class="art-carousel-caption">
-                    <h3>Man's Portrait</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Expedita maxime omnis commodi molestias minima nisi natus,
-                      eligendi harum modi assumenda, nesciunt numquam architecto
-                      totam id voluptatibus dolorum corrupti cum sequi!
-                    </p>
-                  </div>
-                </div>
-                <div class="art-carousel-slide">
-                  <img src="assets/Woman3.jpeg" alt="Woman smilling" />
-                  <div class="art-carousel-caption">
-                    <h3>Finding Order in Chaos</h3>
-                    <p>
-                      Creating structured geometric patterns to represent the
-                      search for stability and predictability.
-                    </p>
-                  </div>
-                </div>
-                <div class="art-carousel-slide">
-                  <img src="assets/Woman2.jpeg" alt="Woman smilling" />
-                  <div class="art-carousel-caption">
-                    <h3>Finding Order in Chaos</h3>
-                    <p>
-                      Creating structured geometric patterns to represent the
-                      search for stability and predictability.
-                    </p>
-                  </div>
-                </div>
-                <div class="art-carousel-slide">
-                  <img src="assets/Woman.jpeg" alt="Woman smilling" />
-                  <div class="art-carousel-caption">
-                    <h3>Finding Order in Chaos</h3>
-                    <p>
-                      Creating structured geometric patterns to represent the
-                      search for stability and predictability.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <button
-                class="art-carousel-nav art-carousel-prev"
-                id="carouselPrev"
-              >
-                &#10094;
-              </button>
-              <button
-                class="art-carousel-nav art-carousel-next"
-                id="carouselNext"
-              >
-                &#10095;
-              </button>
-
-              <div class="art-carousel-dots" id="carouselDots"></div>
-            </div>
-            <!-- End Artwork Carousel -->
-
-            <p style="color: var(--muted); margin-top: 24px">
-              The artwork displayed above represents therapeutic creations from
+              The artwork displayed below represents therapeutic creations from
               clients who have explored their emotions, experiences, and
               personal growth through artistic expression. Each piece tells a
               unique story of healing and self-discovery.
             </p>
-          </div>
-        </section>
 
-        <!-- <section id="instruments">
-          <div class="section-title">
-            <h2>Music Therapy Approaches</h2>
-            <div class="divider"></div>
-          </div>
-          <div class="card">
-            <p style="color: var(--muted); margin-top: 0">
-              I integrate music and rhythm into therapeutic sessions to help
-              clients regulate emotions, reduce anxiety, and enhance
-              self-expression. These techniques are particularly effective for
-              clients who respond well to auditory and kinesthetic modalities.
-            </p>
-            <div class="instr-list">
-              <div class="instr">
-                <svg
-                  width="44"
-                  height="44"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  aria-hidden
-                >
-                  <path
-                    d="M3 3v18h18"
-                    stroke="var(--accent)"
-                    stroke-width="1.6"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                <div style="flex: 1">
-                  <div style="font-weight: 700">Violin Therapy</div>
-                  <small style="color: var(--muted)"
-                    >Using melodic expression for emotional release and mood
-                    regulation</small
-                  >
+            <div class="gallery-wrapper">
+              <!-- Featured Hero -->
+              <div class="featured-hero">
+                <img
+                  class="hero-img"
+                  src="assets/Alfea sister.jpeg"
+                  alt="Alfea at her 18th Birthday"
+                />
+                <div class="hero-body">
+                  <span class="badge">⭐ Editor's Pick</span>
+                  <h2>Alfea at her <span class="gold">18th Birthday</span></h2>
+                  <p>
+                    A heartfelt portrait created as a gift for my sister,
+                    capturing her grace and the joy of a milestone celebration.
+                  </p>
+                  <div class="meta">
+                    <span>📅 July 27, 2020</span>
+                    <span>🏷️ Birthday Gift</span>
+                    <span>❤️ Most Loved</span>
+                  </div>
                 </div>
-                <button
-                  class="btn secondary"
-                  onclick="alert('Audio sample would play here in a live implementation.')"
-                >
-                  Therapeutic Sample
-                </button>
               </div>
 
-              <div class="instr">
-                <svg
-                  width="44"
-                  height="44"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  aria-hidden
-                >
-                  <circle
-                    cx="12"
-                    cy="8"
-                    r="3"
-                    stroke="var(--accent)"
-                    stroke-width="1.6"
-                  />
-                  <path
-                    d="M4 20c4-6 8-6 16 0"
-                    stroke="var(--accent)"
-                    stroke-width="1.6"
-                    stroke-linecap="round"
-                  />
-                </svg>
-                <div style="flex: 1">
-                  <div style="font-weight: 700">Piano / Keyboard Therapy</div>
-                  <small style="color: var(--muted)"
-                    >Rhythmic exercises and harmonic exploration for anxiety
-                    reduction</small
-                  >
+              <!-- Sub-featured row (3 pieces) -->
+              <div class="featured-sub">
+                <div class="sub-card">
+                  <img src="assets/Kyle.jpeg" alt="Kyle Echarri" />
+                  <div class="sub-body">
+                    <h4>Celebrity Portrait – Kyle Echarri</h4>
+                    <!-- <p>Color Pencil • 2024</p> -->
+                    <span class="mini-badge">⭐ Popular</span>
+                  </div>
                 </div>
-                <button
-                  class="btn secondary"
-                  onclick="alert('Audio sample would play here in a live implementation.')"
-                >
-                  Therapeutic Sample
-                </button>
+                <div class="sub-card">
+                  <img src="assets/Lee min ho.jpeg" alt="Lee Min Ho" />
+                  <div class="sub-body">
+                    <h4>Lee Min Ho</h4>
+                    <!-- <p>Charcoal and Graphite • 2023</p> -->
+                    <span class="mini-badge">⭐ Fan Art</span>
+                  </div>
+                </div>
+                <div class="sub-card">
+                  <img src="assets/Man.jpeg" alt="Man's Portrait" />
+                  <div class="sub-body">
+                    <h4>Sir Lapaz Portrait</h4>
+                    <!-- <p>Charcoal • 2022</p> -->
+                    <span class="mini-badge">⭐ Memory</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Main grid of all artworks -->
+              <h3 style="margin: 1.5rem 0 0.5rem; color: var(--text); font-weight: 600;">
+                Full Gallery
+              </h3>
+              <div class="art-grid">
+                <div class="art-card">
+                  <img src="assets/Alfea sister.jpeg" alt="Alfea at her 18th Birthday" />
+                  <div class="box">
+                    <h3>Alfea at her 18th Birthday</h3>
+                    <p>Birthday gift for my sister • 2020</p>
+                  </div>
+                </div>
+                <div class="art-card">
+                  <img src="assets/Kyle.jpeg" alt="Kyle Echarri" />
+                  <div class="box">
+                    <h3>Celebrity Portrait – Kyle Echarri</h3>
+                    <!-- <p>Color Pencil • 2024</p> -->
+                  </div>
+                </div>
+                <div class="art-card">
+                  <img src="assets/Lee min ho.jpeg" alt="Lee Min Ho" />
+                  <div class="box">
+                    <h3>Lee Min Ho</h3>
+                    <!-- <p>Charcoal and Graphite • 2023</p> -->
+                  </div>
+                </div>
+                <div class="art-card">
+                  <img src="assets/Man.jpeg" alt="Man's Portrait" />
+                  <div class="box">
+                    <h3>Sir Lapaz Portrait</h3>
+                    <!-- <p>Charcoal • 2022</p> -->
+                  </div>
+                </div>
+                <div class="art-card">
+                  <img src="assets/Woman3.jpeg" alt="Finding Order in Chaos" />
+                  <div class="box">
+                    <h3>Finding Order in Chaos</h3>
+                    <!-- <p>Graphite • 2021</p> -->
+                  </div>
+                </div>
+                <div class="art-card">
+                  <img src="assets/Woman2.jpeg" alt="Woman smilling" />
+                  <div class="box">
+                    <h3>Smiling Woman</h3>
+                    <!-- <p>Charcoal • 2020</p> -->
+                  </div>
+                </div>
+                <div class="art-card">
+                  <img src="assets/Woman.jpeg" alt="Woman smilling" />
+                  <div class="box">
+                    <h3>Another Smiling Woman</h3>
+                    <p>Charcoal • 2019</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </section> -->
+        </section>
 
         <section id="certifications">
           <div class="section-title">
@@ -1098,25 +1190,20 @@
                   Professional Affiliations
                 </div>
                 <div style="color: var(--muted); margin-bottom: 8px">
-                  <strong>Registered Guidance Counselor (PRC)</strong
-                  ><br />
+                  <strong>Registered Guidance Counselor (PRC)</strong><br />
                   (PRC) • 2025
                 </div>
                 <div style="color: var(--muted); margin-bottom: 8px">
-                  <strong
-                    >Certified BiblioTherapist</strong
-                  ><br />
-                  Certified  since 2021
+                  <strong>Certified BiblioTherapist</strong><br />
+                  Certified since 2021
                 </div>
-                 <div style="color: var(--muted); margin-bottom: 8px">
-                  <strong
-                    >Certified Lean Six Sigma Yellow Belt</strong
-                  ><br />
-                  Certified  since 2020
+                <div style="color: var(--muted); margin-bottom: 8px">
+                  <strong>Certified Lean Six Sigma Yellow Belt</strong><br />
+                  Certified since 2020
                 </div>
               </div>
             </div>
-            
+
             <div
               style="
                 margin-top: 24px;
@@ -1148,7 +1235,7 @@
       </footer>
     </div>
 
-    <!-- Modal for art / credentials -->
+    <!-- Modal for credentials (unchanged) -->
     <div
       id="modal"
       class="modal"
@@ -1172,81 +1259,49 @@
       </div>
     </div>
 
+    <!-- New Image Modal for gallery -->
+    <div id="imgModal" class="img-modal">
+      <span class="img-close">&times;</span>
+      <img class="img-modal-content" id="modalImg" alt="Artwork enlarged" />
+    </div>
+
     <script>
-      // Carousel functionality
-      document.addEventListener("DOMContentLoaded", function () {
-        const carousel = document.getElementById("artCarousel");
-        const slides = document.querySelectorAll(".art-carousel-slide");
-        const prevBtn = document.getElementById("carouselPrev");
-        const nextBtn = document.getElementById("carouselNext");
-        const dotsContainer = document.getElementById("carouselDots");
+      // ---------- Image Modal (gallery) ----------
+      const imgModal = document.getElementById("imgModal");
+      const modalImg = document.getElementById("modalImg");
+      const imgClose = imgModal.querySelector(".img-close");
 
-        let currentSlide = 0;
-        const totalSlides = slides.length;
+      // All clickable images in the gallery
+      const galleryImages = document.querySelectorAll(
+        ".featured-hero .hero-img, .featured-sub .sub-card img, .art-card img"
+      );
 
-        // Create dots
-        for (let i = 0; i < totalSlides; i++) {
-          const dot = document.createElement("button");
-          dot.className = "art-carousel-dot";
-          if (i === 0) dot.classList.add("active");
-          dot.setAttribute("aria-label", `Go to slide ${i + 1}`);
-          dot.addEventListener("click", () => goToSlide(i));
-          dotsContainer.appendChild(dot);
-        }
-
-        const dots = document.querySelectorAll(".art-carousel-dot");
-
-        // Function to update carousel position
-        function updateCarousel() {
-          carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
-
-          // Update active dot
-          dots.forEach((dot, index) => {
-            dot.classList.toggle("active", index === currentSlide);
-          });
-        }
-
-        // Go to specific slide
-        function goToSlide(index) {
-          currentSlide = index;
-          updateCarousel();
-        }
-
-        // Next slide
-        function nextSlide() {
-          currentSlide = (currentSlide + 1) % totalSlides;
-          updateCarousel();
-        }
-
-        // Previous slide
-        function prevSlide() {
-          currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-          updateCarousel();
-        }
-
-        // Event listeners
-        prevBtn.addEventListener("click", prevSlide);
-        nextBtn.addEventListener("click", nextSlide);
-
-        // Auto-advance carousel
-        let carouselInterval = setInterval(nextSlide, 5000);
-
-        // Pause auto-advance on hover
-        carousel.addEventListener("mouseenter", () => {
-          clearInterval(carouselInterval);
-        });
-
-        carousel.addEventListener("mouseleave", () => {
-          carouselInterval = setInterval(nextSlide, 5000);
-        });
-
-        // Keyboard navigation
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "ArrowLeft") prevSlide();
-          if (e.key === "ArrowRight") nextSlide();
+      galleryImages.forEach((img) => {
+        img.addEventListener("click", (e) => {
+          e.stopPropagation();
+          imgModal.style.display = "flex";
+          modalImg.src = img.src;
+          modalImg.alt = img.alt || "Artwork";
         });
       });
 
+      imgClose.onclick = () => {
+        imgModal.style.display = "none";
+      };
+
+      imgModal.onclick = (e) => {
+        if (e.target === imgModal) {
+          imgModal.style.display = "none";
+        }
+      };
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && imgModal.style.display === "flex") {
+          imgModal.style.display = "none";
+        }
+      });
+
+      // ---------- Existing functions ----------
       // Smooth scroll for nav
       document.querySelectorAll("nav a").forEach((a) => {
         a.addEventListener("click", (e) => {
@@ -1257,7 +1312,7 @@
         });
       });
 
-      // Modal functions
+      // Modal functions (credentials)
       function openModal(title, html) {
         const modal = document.getElementById("modal");
         document.getElementById("modalTitle").textContent = title;
@@ -1312,7 +1367,7 @@
         );
       });
 
-      // Theme toggle functionality
+      // Theme toggle
       const themeToggle = document.getElementById("themeToggle");
       themeToggle.addEventListener("click", () => {
         const isDark =
@@ -1321,7 +1376,6 @@
           !document.documentElement.style.getPropertyValue("--bg");
 
         if (isDark) {
-          // Switch to light mode
           document.documentElement.style.setProperty("--bg", "#f8fafc");
           document.documentElement.style.setProperty("--card", "#F5F5DC");
           document.documentElement.style.setProperty("--accent", "#fbbf24");
@@ -1329,10 +1383,9 @@
           document.documentElement.style.setProperty("--accent-3", "#274368");
           document.documentElement.style.setProperty("--muted", "#5a5a5a");
           document.documentElement.style.setProperty("--light", "#d2d2d2");
-          document.documentElement.style.setProperty("--text", " #0f172a");
+          document.documentElement.style.setProperty("--text", "#0f172a");
           themeToggle.textContent = "Dark Mode";
         } else {
-          // Switch to dark mode
           document.documentElement.style.setProperty("--bg", "#0f172a");
           document.documentElement.style.setProperty("--card", "#1e293b");
           document.documentElement.style.setProperty("--accent", "#fbbf24");
